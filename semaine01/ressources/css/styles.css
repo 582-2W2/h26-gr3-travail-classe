@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1f2933;
+    background-color: #f7f8fa;
+}
+
+header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0f172a;
+    color: #fff;
+    padding: 1rem 1.5rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+
+        &[aria-current="page"] {
+            border-bottom: 2px solid #c85c0f;
+        }
+    }
+}
