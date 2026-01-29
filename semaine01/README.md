@@ -12,4 +12,4 @@ Exercices suggérés
 
 Captures d'écrans
 <img src="_captures/page-accueil.png">
-<img src="_captures/page-films.png_">
+<img src="_captures/page-films.png">
