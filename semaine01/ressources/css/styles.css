@@ -33,3 +33,43 @@ nav {
         }
     }
 }
+
+.hero {
+    padding: 3rem 1.5rem;
+    background: linear-gradient(45deg, #0f172a, #5680c4);
+    color: white;
+
+    h1 {
+        margin: 0.25rem 0 1rem;
+    }
+
+    p {
+        max-width: 560px;
+    }
+}
+
+.surtitre {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    letter-spacing: 0.08rem;
+}
+
+.appel {
+    margin-top: 1rem;
+    padding: 0.75rem 1.4rem;
+    background-color: #c85c0f;
+    color: #f7f8fa;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: translate 150ms ease-out, box-shadow 150ms;
+
+    &:hover {
+        /* transform: translateY(-5px); */
+        translate: 0 -2px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+}
