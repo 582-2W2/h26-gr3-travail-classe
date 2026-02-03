@@ -73,3 +73,46 @@ nav {
     }
 
 }
+
+.grille {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem 1rem;
+}
+
+.tuile {
+    flex: 1 1 0;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    min-height: 300px;
+    transition: translate 0.3s;
+    position: relative;
+    overflow: hidden;
+
+    .description {
+        position: absolute;
+        /* top: 0; */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        translate: 0 100%;
+        transition: translate 300ms;
+    }
+
+    &:hover {
+        translate: 0 -4px;
+
+        .description {
+            translate: initial;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #0f172a;
+    color: #fff;
+}
