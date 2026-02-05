@@ -38,12 +38,27 @@
 			Tablette - 768px et +
 			On met le texte sur 2 colonnes avec des gouttières de 5%
 		*/
+		@media (min-width: 768px) {
+			p {
+				columns: 2;
+				column-gap: 5%;
+			}
+		}
+
 
 		/*
-			Ordinateur portable et de bureau - 992px and +
+			Ordinateur portable et de bureau - 1200px and +
 			On met le texte sur 3 colonnes avec des gouttières de 5%
 			Et, on justifie le texte
     	*/
+		@media (min-width: 1200px) {
+			p {
+				columns: 3;
+				column-gap: 5%;
+				text-align: justify;
+			}
+		}
+
 	</style>
 </head>
 

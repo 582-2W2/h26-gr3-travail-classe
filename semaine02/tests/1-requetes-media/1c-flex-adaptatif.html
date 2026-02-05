@@ -39,10 +39,11 @@
 			/*
 				Conteneurs en colonne
 			*/
+			display: flex;
+			flex-direction: column;
 		}
 
 		a {
-			display: block;
 			text-decoration: none;
 			padding: 3vmin;
 			font-size: 1.5rem;
@@ -54,10 +55,10 @@
 			/*
 				Effet de transition.
 			*/
-
+			transition: background-color 0.3s, color 0.3s;
 		}
 
-		/*Au survol du bouton ou lorsqu'il est activé*/
+		/*Au survol du bouton ou lorsqu'il est activé (par exemple sur mobile sur "touch")*/
 		a:hover,
 		a:active {
 			color: rgb(60, 25, 80);
@@ -74,15 +75,35 @@
 			et on leur enlève la bordure du haut
 				
 		*/
+		@media (min-width: 768px) {
+			nav {
+				flex-direction: row;
+				justify-content: space-evenly;
+			}
+
+			a {
+				border: none;
+				flex-grow: 1;
+			}
+		}
 
 
 		/*
-			Ordinateur portable et de bureau - 992px and +
+			Ordinateur portable et de bureau - 1200px et +
 			Les items du menu sont alignés à droite,
 			ils ne peuvent plus s'étirer et on leur met
 			une bordure à gauche : 1px solid rgba(60, 25, 80, 0.5);
-
 		*/
+		@media (min-width: 1200px) {
+			nav {
+				justify-content: flex-end;
+				
+				a {
+					flex-grow: 0;
+					border-left: 1px solid rgba(60, 25, 80, 0.5);
+				}
+			}
+		}
 	</style>
 </head>
 
@@ -93,7 +114,7 @@
 		</header>
 
 		<nav>
-			<a href="#">Souriant <span>&#128512;</span></a>
+			<a href="#">&#x1F37E;Souriant <span>&#128512;</span></a>
 			<a href="#">Content <span> &#128515;</span></a>
 			<a href="#">Confus <span>&#128533;</span></a>
 			<a href="#">Étourdi <span>&#128565;</span></a>

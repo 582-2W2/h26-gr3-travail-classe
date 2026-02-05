@@ -41,11 +41,26 @@
 		/*
 			Afficher le texte pour l'orientation paysage
 		*/
+		/* Requête média qui cible l'orientation (@-rule) */
+		@media (orientation: portrait) {
+			h1.portrait {
+				display: block;
+			}
 
+			body {
+				background-color: aqua;
+			}
+		}
 
 		/*
 			Afficher le texte pour l'orientation portrait
 		*/
+		@media (orientation: landscape) {
+
+			h1.paysage {
+				display: block;
+			}
+		}
 	</style>
 </head>
 

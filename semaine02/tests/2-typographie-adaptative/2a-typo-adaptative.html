@@ -26,7 +26,7 @@
 				La taille de base des polices de caractères est déterminée par 
 				défaut par les paramètres des navigateurs (généralement 16px)
 			*/
-
+			font-size: 0.875rem;
 		}
 
 		p {
@@ -44,14 +44,20 @@
 		/*
 			Tablette - 768px et +
 		*/
-		@media screen and (min-width:768px) {}
+		@media screen and (min-width:768px) {
+			html {
+				font-size: 1rem;
+			}
+		}
 
 
 		/*
-			Ordinateur portable et de bureau - 992px and +
+			Ordinateur portable et de bureau - 1200px et +
 		*/
-		@media screen and (min-width:992px) {
-
+		@media screen and (min-width:1200px) {
+			html {
+				font-size: 1.25rem;
+			}
 		}
 	</style>
 </head>
