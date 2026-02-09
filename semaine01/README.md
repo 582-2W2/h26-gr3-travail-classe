@@ -7,9 +7,9 @@ Objectifs
 
 Captures d'écrans pour la mise en page à réaliser :
 - Page d'accueil
-    <img src="_captures/page-accueil.png">
+    <img src="cinetim/_captures/page-accueil.png">
 - Page des films
-    <img src="_captures/page-films.png">
+    <img src="cinetim/_captures/page-films.png">
 
 
 > Consultez le sommaire de la matière vue dans le cours cette semaine : [s01-sommaire-du-cours.md](s01-sommaire-cours.md)
