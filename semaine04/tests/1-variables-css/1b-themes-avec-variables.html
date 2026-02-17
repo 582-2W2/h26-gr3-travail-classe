@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thèmes avec Variables CSS</title>
+    <style>
+        /* À FAIRE : affecter le thème par défaut au sélecteur racine */
+        /* Thème clair (défaut) */
+        /*
+            --fond-principal: #ffffff;
+            --fond-secondaire: #f5f5f5;
+            --texte-principal: #1a1a1a;
+            --texte-secondaire: #666666;
+            --accent: #2196F3;
+            --bordure: #e0e0e0;
+
+            --espace: 16px;
+            --radius: 8px;
+        */
+
+        /* À FAIRE : affecter le thème sombre au sélecteur adéquat */
+        /* Thème sombre */
+        /*
+            --fond-principal: #1a1a1a;
+            --fond-secondaire: #2d2d2d;
+            --texte-principal: #ffffff;
+            --texte-secondaire: #b0b0b0;
+            --accent: #64B5F6;
+            --bordure: #404040;
+        */
+
+        /* À FAIRE : affecter le thème automne au sélecteur adéquat */
+        /* Thème automne */
+        /*
+            --fond-principal: #fde4d4;
+            --fond-secondaire: #f5c5a8;
+            --texte-principal: #3d2817;
+            --texte-secondaire: #6b4423;
+            --accent: #d97000;
+            --bordure: #e8b299;
+        */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: var(--espace);
+            background: var(--fond-principal);
+            color: var(--texte-principal);
+            transition: background 300ms, color 300ms;
+        }
+
+        h1 {
+            color: var(--accent);
+            margin-bottom: var(--espace);
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: calc(var(--espace) * 2);
+            margin-bottom: var(--espace);
+        }
+
+        /* Sélecteur de thème */
+        .selecteur-theme {
+            display: flex;
+            gap: var(--espace);
+            margin-bottom: calc(var(--espace) * 2);
+            flex-wrap: wrap;
+        }
+
+        .bouton-theme {
+            padding: var(--espace);
+            border: 2px solid var(--bordure);
+            background: var(--fond-secondaire);
+            color: var(--texte-principal);
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 200ms;
+        }
+
+        .bouton-theme:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Carte de contenu */
+        .carte {
+            background: var(--fond-secondaire);
+            border: 1px solid var(--bordure);
+            padding: var(--espace);
+            border-radius: var(--radius);
+            margin-bottom: var(--espace);
+        }
+
+        .carte h3 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+
+        .carte p {
+            color: var(--texte-secondaire);
+            line-height: 1.6;
+        }
+
+        /* Grille de cartes */
+        .grille {
+            /* À FAIRE: Ajouter disposition en flex ou grid */
+            
+            /* À FAIRE : colonnes flexibles (grid, repeat, auto-fit, minmax) */
+
+            gap: var(--espace);
+            margin-bottom: calc(var(--espace) * 2);
+        }
+
+        /* Code d'exemple */
+        .code {
+            background: var(--fond-secondaire);
+            border-left: 4px solid var(--accent);
+            padding: var(--espace);
+            border-radius: var(--radius);
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--texte-secondaire);
+            overflow-x: auto;
+            margin: var(--espace) 0;
+        }
+
+        /* Bouton d'action */
+        .bouton-action {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: calc(var(--espace) * 0.75) var(--espace);
+            border-radius: var(--radius);
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 200ms;
+        }
+
+        .bouton-action:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Thèmes dynamiques avec Variables CSS</h1>
+
+    <div class="selecteur-theme">
+        <!-- À FAIRE: Gérer le clic sur chaque bouton pour changer le thème -->
+        <button class="bouton-theme">☀️ Clair</button>
+        <button class="bouton-theme">🌙 Sombre</button>
+        <button class="bouton-theme">🍂 Automne</button>
+    </div>
+
+    <div class="grille">
+        <div class="carte">
+            <h3>🎨 Customisation facile</h3>
+            <p>Déclare les couleurs dans :root, puis ajoute une classe à body avec les nouvelles valeurs. Tous les
+                éléments se mettent à jour automatiquement!</p>
+            <div class="code">
+                body.theme-sombre {<br>
+                &nbsp;&nbsp;--fond: #1a1a1a;<br>
+                &nbsp;&nbsp;--texte: #ffffff;<br>
+                }
+            </div>
+        </div>
+
+        <div class="carte">
+            <h3>🔄 Transitions fluides</h3>
+            <p>La transition CSS sur body crée un effet de dégradé lisse quand on passe d'un thème à l'autre.</p>
+            <div class="code">
+                transition: background 300ms, color 300ms;
+            </div>
+        </div>
+
+        <div class="carte">
+            <h3>📱 Adapté au responsive</h3>
+            <p>Les variables s'appliquent aussi aux media queries. Un thème sombre automatique en préférence
+                utilisateur? Facile!</p>
+            <div class="code">
+                @media (prefers-color-scheme: dark) {<br>
+                &nbsp;&nbsp;body { --fond: #1a1a1a; }<br>
+                }
+            </div>
+        </div>
+    </div>
+
+    <h2>Avantages des variables CSS</h2>
+    <div class="carte">
+        <p><strong>✓ Maintenabilité:</strong> Modifier une couleur une seule fois au lieu de 50 fois</p>
+        <p><strong>✓ Cohérence:</strong> Toute l'interface utilise les mêmes valeurs</p>
+        <p><strong>✓ Rapidité:</strong> Créer un nouveau thème en quelques lignes</p>
+        <p><strong>✓ Flexibilité:</strong> Les variables peuvent être modifiées dynamiquement avec JavaScript</p>
+        <button class="bouton-action" onclick="changerCouleur()">Cliquez pour changer la couleur d'accent</button>
+    </div>
+
+    <script>
+        // À FAIRE: Implémenter changerTheme(theme) pour ajouter la classe correspondante à body
+
+        // À FAIRE: Implémenter changerCouleur() pour modifier la variable --accent dynamiquement
+        
+    </script>
+
+</body>
+
+</html>

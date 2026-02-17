@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propriétés personnalisées CSS - Variables (INCOMPLÈTE)</title>
+  <style>
+    /* À FAIRE: Définir les variables CSS dans :root */
+    /* Couleurs principales */
+    
+
+    /* Espaces et tailles */
+    
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 32px; /* À FAIRE: grand espacement */
+      background: #f5f5f5;
+    }
+
+    h1 {
+      color: #2196F3; /* À FAIRE: couleur primaire */
+      margin-bottom: 32px; /* À FAIRE: grand espacement */
+    }
+
+    h2 {
+      color: #333;
+      margin-top: 32px; /* À FAIRE: grand espacement */
+      margin-bottom: 16px; /* À FAIRE: espacement moyen */
+    }
+
+    .note {
+      background: #fff9e6;
+      padding: 16px; /* À FAIRE: espacement moyen */
+      border-left: 4px solid #2196F3; /* À FAIRE: couleur primaire */
+      margin-bottom: 16px; /* À FAIRE: espacement moyen */
+      font-size: 14px;
+    }
+
+    .boutons {
+      display: flex;
+      gap: 16px; /* À FAIRE: espacement moyen */
+      margin-bottom: 32px; /* À FAIRE: grand espacement */
+      flex-wrap: wrap;
+    }
+
+    .bouton {
+      padding: 16px 32px; /* À FAIRE: espacement moyen grand espacement */
+      border: none;
+      border-radius: 8px; /* À FAIRE: courbure de bordure */
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* À FAIRE: ombre portée de boîte */
+      transition: transform 200ms;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .bouton-primaire {
+      background: #2196F3; /* À FAIRE: couleur primaire */
+      color: white;
+    }
+
+    .bouton-secondaire {
+      background: #4CAF50; /* À FAIRE: couleur secondaire */
+      color: white;
+    }
+
+    .bouton-danger {
+      background: #f44336; /* À FAIRE: couleur danger */
+      color: white;
+    }
+
+    /* À FAIRE: Ajouter display: grid */
+    .cartes {
+      gap: 32px; /* À FAIRE: grand espacement */
+      margin-bottom: 32px; /* À FAIRE: grand espacement */
+    }
+
+    .carte {
+      background: white;
+      padding: 32px; /* À FAIRE: grand espacement */
+      border-radius: 8px; /* À FAIRE: courbure de bordure */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* À FAIRE: ombre portée de boîte */
+    }
+
+    .carte h3 {
+      color: #2196F3; /* À FAIRE: couleur primaire */
+      margin: 0 0 16px 0; /* À FAIRE: espacement moyen */
+    }
+
+    .carte p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* À FAIRE: Ajouter display: flex */
+    .statuts {
+      gap: 16px; /* À FAIRE: espacement moyen */
+      flex-wrap: wrap;
+      margin-bottom: 32px; /* À FAIRE: grand espacement */
+    }
+
+    .statut {
+      display: inline-block;
+      padding: 8px 16px; /* À FAIRE: var(--espace-petit) espacement moyen */
+      border-radius: 8px; /* À FAIRE: courbure de bordure */
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .statut-ok {
+      background: #4CAF50; /* À FAIRE: couleur secondaire */
+      color: white;
+    }
+
+    .statut-erreur {
+      background: #f44336; /* À FAIRE: couleur danger */
+      color: white;
+    }
+
+    .statut-info {
+      background: #2196F3; /* À FAIRE: couleur primaire */
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Propriétés personnalisées CSS (Variables CSS) - À COMPLÉTER</h1>
+
+  <div class="note">
+    À FAIRE: Déclarer les variables CSS dans :root avec <strong>--nom-variable: valeur;</strong><br>
+    Puis les utiliser partout avec <strong>var(--nom-variable)</strong>
+  </div>
+
+  <!-- EXEMPLE 1: Boutons -->
+  <h2>1. Boutons avec couleurs centralisées</h2>
+  <div class="note">À FAIRE: Si on change --couleur-primaire en :root, tous les boutons primaires se mettent à jour!</div>
+  <div class="boutons">
+    <button class="bouton bouton-primaire">Bouton primaire</button>
+    <button class="bouton bouton-secondaire">Bouton secondaire</button>
+    <button class="bouton bouton-danger">Bouton danger</button>
+  </div>
+
+  <!-- EXEMPLE 2: Cartes -->
+  <h2>2. Cartes avec espacement variable</h2>
+  <div class="note">À FAIRE: Ajouter display: grid et utiliser grid-template-columns avec repeat(auto-fit, minmax(250px, 1fr))</div>
+  <div class="cartes">
+    <div class="carte">
+      <h3>Titre 1</h3>
+      <p>Le padding utilise var(--espace-grand). L'espacement est cohérent dans toute l'interface.</p>
+    </div>
+    <div class="carte">
+      <h3>Titre 2</h3>
+      <p>Tous les radius utilisent var(--radius). Modifier :root change tous les arrondis.</p>
+    </div>
+    <div class="carte">
+      <h3>Titre 3</h3>
+      <p>Les couleurs aussi! var(--couleur-primaire) s'applique aux titres et boutons.</p>
+    </div>
+  </div>
+
+  <!-- EXEMPLE 3: Statuts -->
+  <h2>3. Étiquettes de statut</h2>
+  <div class="note">À FAIRE: Ajouter display: flex</div>
+  <div class="statuts">
+    <span class="statut statut-ok">✓ Validé</span>
+    <span class="statut statut-erreur">✗ Erreur</span>
+    <span class="statut statut-info">ℹ Information</span>
+  </div>
+
+</body>
+</html>
