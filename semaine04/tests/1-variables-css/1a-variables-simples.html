@@ -6,10 +6,24 @@
   <title>Propriétés personnalisées CSS - Variables (INCOMPLÈTE)</title>
   <style>
     /* À FAIRE: Définir les variables CSS dans :root */
-    /* Couleurs principales */
+    :root {
+      /* Couleurs principales */
+      --couleur-primaire: #2196F3;
+      --couleur-secondaire: #4CAF50;
+      --couleur-danger: #f44336;
+
+      /* Espaces et tailles */
+      --espace-petit: 0.5rem;
+      --espace-moyen: 1rem;
+      --espace-grand: 2rem;
+
+      /* Autres */
+      --courbure: 0.5rem;
+      --ombre: 0 2px 8px rgba(0,0,0,0.1);
+      --ombre-survol: 0px 0px 120px 10px rgba(255, 166, 0, 0.5);
+    }
     
 
-    /* Espaces et tailles */
     
 
     * {
@@ -19,63 +33,63 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 32px; /* À FAIRE: grand espacement */
+      padding: var(--espace-grand); /* À FAIRE: grand espacement */
       background: #f5f5f5;
     }
 
     h1 {
-      color: #2196F3; /* À FAIRE: couleur primaire */
-      margin-bottom: 32px; /* À FAIRE: grand espacement */
+      color: var(--couleur-primaire); /* À FAIRE: couleur primaire */
+      margin-bottom: var(--espace-grand); /* À FAIRE: grand espacement */
     }
 
     h2 {
       color: #333;
-      margin-top: 32px; /* À FAIRE: grand espacement */
-      margin-bottom: 16px; /* À FAIRE: espacement moyen */
+      margin-top: var(--espace-grand); /* À FAIRE: grand espacement */
+      margin-bottom: var(--espace-moyen); /* À FAIRE: espacement moyen */
     }
 
     .note {
       background: #fff9e6;
-      padding: 16px; /* À FAIRE: espacement moyen */
-      border-left: 4px solid #2196F3; /* À FAIRE: couleur primaire */
-      margin-bottom: 16px; /* À FAIRE: espacement moyen */
+      padding: var(--espace-moyen); /* À FAIRE: espacement moyen */
+      border-left: 4px solid var(--couleur-primaire); /* À FAIRE: couleur primaire */
+      margin-bottom: var(--espace-moyen); /* À FAIRE: espacement moyen */
       font-size: 14px;
     }
 
     .boutons {
       display: flex;
-      gap: 16px; /* À FAIRE: espacement moyen */
+      gap: var(--espace-moyen); /* À FAIRE: espacement moyen */
       margin-bottom: 32px; /* À FAIRE: grand espacement */
       flex-wrap: wrap;
     }
 
     .bouton {
-      padding: 16px 32px; /* À FAIRE: espacement moyen grand espacement */
+      padding: var(--espace-moyen) 32px; /* À FAIRE: espacement moyen grand espacement */
       border: none;
       border-radius: 8px; /* À FAIRE: courbure de bordure */
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* À FAIRE: ombre portée de boîte */
+      box-shadow: var(--ombre); /* À FAIRE: ombre portée de boîte */
       transition: transform 200ms;
     }
 
     .bouton:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--ombre-survol);
     }
 
     .bouton-primaire {
-      background: #2196F3; /* À FAIRE: couleur primaire */
+      background: var(--couleur-primaire); /* À FAIRE: couleur primaire */
       color: white;
     }
 
     .bouton-secondaire {
-      background: #4CAF50; /* À FAIRE: couleur secondaire */
+      background: var(--couleur-secondaire); /* À FAIRE: couleur secondaire */
       color: white;
     }
 
     .bouton-danger {
-      background: #f44336; /* À FAIRE: couleur danger */
+      background: var(--couleur-danger); /* À FAIRE: couleur danger */
       color: white;
     }
 
@@ -93,8 +107,8 @@
     }
 
     .carte h3 {
-      color: #2196F3; /* À FAIRE: couleur primaire */
-      margin: 0 0 16px 0; /* À FAIRE: espacement moyen */
+      color: var(--couleur-primaire); /* À FAIRE: couleur primaire */
+      margin: 0 0 var(--espace-moyen) 0; /* À FAIRE: espacement moyen */
     }
 
     .carte p {
@@ -104,31 +118,31 @@
 
     /* À FAIRE: Ajouter display: flex */
     .statuts {
-      gap: 16px; /* À FAIRE: espacement moyen */
+      gap: var(--espace-moyen); /* À FAIRE: espacement moyen */
       flex-wrap: wrap;
       margin-bottom: 32px; /* À FAIRE: grand espacement */
     }
 
     .statut {
       display: inline-block;
-      padding: 8px 16px; /* À FAIRE: var(--espace-petit) espacement moyen */
+      padding: 8px var(--espace-moyen); /* À FAIRE: var(--espace-petit) espacement moyen */
       border-radius: 8px; /* À FAIRE: courbure de bordure */
       font-size: 12px;
       font-weight: bold;
     }
 
     .statut-ok {
-      background: #4CAF50; /* À FAIRE: couleur secondaire */
+      background: var(--couleur-secondaire); /* À FAIRE: couleur secondaire */
       color: white;
     }
 
     .statut-erreur {
-      background: #f44336; /* À FAIRE: couleur danger */
+      background: var(--couleur-danger); /* À FAIRE: couleur danger */
       color: white;
     }
 
     .statut-info {
-      background: #2196F3; /* À FAIRE: couleur primaire */
+      background: var(--couleur-primaire); /* À FAIRE: couleur primaire */
       color: white;
     }
 

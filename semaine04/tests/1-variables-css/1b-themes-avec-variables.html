@@ -8,7 +8,8 @@
     <style>
         /* À FAIRE : affecter le thème par défaut au sélecteur racine */
         /* Thème clair (défaut) */
-        /*
+        /**/
+        :root {
             --fond-principal: #ffffff;
             --fond-secondaire: #f5f5f5;
             --texte-principal: #1a1a1a;
@@ -18,29 +19,31 @@
 
             --espace: 16px;
             --radius: 8px;
-        */
+        }
 
         /* À FAIRE : affecter le thème sombre au sélecteur adéquat */
         /* Thème sombre */
-        /*
+        /**/
+        body.sombre {
             --fond-principal: #1a1a1a;
             --fond-secondaire: #2d2d2d;
             --texte-principal: #ffffff;
             --texte-secondaire: #b0b0b0;
             --accent: #64B5F6;
             --bordure: #404040;
-        */
+        }
 
         /* À FAIRE : affecter le thème automne au sélecteur adéquat */
         /* Thème automne */
-        /*
+        /**/
+        body.automne {
             --fond-principal: #fde4d4;
             --fond-secondaire: #f5c5a8;
             --texte-principal: #3d2817;
             --texte-secondaire: #6b4423;
             --accent: #d97000;
             --bordure: #e8b299;
-        */
+        }
 
         * {
             box-sizing: border-box;
@@ -201,11 +204,41 @@
         <p><strong>✓ Cohérence:</strong> Toute l'interface utilise les mêmes valeurs</p>
         <p><strong>✓ Rapidité:</strong> Créer un nouveau thème en quelques lignes</p>
         <p><strong>✓ Flexibilité:</strong> Les variables peuvent être modifiées dynamiquement avec JavaScript</p>
-        <button class="bouton-action" onclick="changerCouleur()">Cliquez pour changer la couleur d'accent</button>
+        <button class="bouton-action">Cliquez pour changer la couleur d'accent</button>
     </div>
 
     <script>
         // À FAIRE: Implémenter changerTheme(theme) pour ajouter la classe correspondante à body
+        // const btnTheme = document.querySelector(".bouton-theme");
+        // console.log("Bouton : ", btnTheme);
+        const tabBoutonsTheme = document.querySelectorAll(".bouton-theme");
+        console.log("Les boutons : ", tabBoutonsTheme);
+        console.log("Le bouton Automne : ", tabBoutonsTheme[2]);
+        
+        // CHANGER CE CODE POUR LE MODULARISER en utilisant une boucle
+        // (Une seule fonction !!!!)
+
+        tabBoutonsTheme[0].addEventListener("click", changerThemeClair);
+
+        function changerThemeClair() {
+            // Changer la valeur de la classe de l'élément body
+            document.querySelector("body").className = "";
+        }
+
+        tabBoutonsTheme[1].addEventListener("click", changerThemeSombre);
+
+        function changerThemeSombre() {
+            // Changer la valeur de la classe de l'élément body
+            document.querySelector("body").className = "sombre";
+        }
+
+        tabBoutonsTheme[2].addEventListener("click", changerThemeAutomne);
+
+        function changerThemeAutomne() {
+            // Changer la valeur de la classe de l'élément body
+            document.querySelector("body").className = "automne";
+        }
+
 
         // À FAIRE: Implémenter changerCouleur() pour modifier la variable --accent dynamiquement
         
