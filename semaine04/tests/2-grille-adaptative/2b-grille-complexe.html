@@ -34,26 +34,31 @@
     /* EXEMPLE 1: Layout classique (en-tête, contenu, sidebar, pied) */
     /* À FAIRE */
     .layout-classique {
-     
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
       margin-bottom: 40px;
     }
 
     /* À FAIRE */
     .entete {
       /* Occupe toutes les colonnes */
-
+      grid-column: 1/-1;
     }
 
     /* À FAIRE */
     .pied {
       /* Occupe toutes les colonnes */
-
+      grid-column: 1/-1;
     }
 
     /* EXEMPLE 2: Galerie style Pinterest */
     /* À FAIRE */
     .galerie-Pinterest {
-      
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      align-items: start;
+      gap: 10px;
       margin-bottom: 40px;
     }
 
@@ -71,7 +76,9 @@
     /* EXEMPLE 4: Layout asymétrique */
     /* À FAIRE */
     .layout-asymetrique {
-
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
       margin-bottom: 40px;
     }
 
@@ -158,22 +165,24 @@
     @media (min-width: 768px) {
       /* À FAIRE */
       .layout-classique {
-        
+        grid-template-columns: 1fr 300px;
       }
 
       /* À FAIRE */
       .layout-asymetrique {
-        
+        grid-template-columns: 2fr 1fr;
 
         /* À FAIRE */
         .boite:nth-child(1) {
-          
+          grid-row: 1/3;
+          /* grid-row-start: 1;
+          grid-row-end: 3; */
         }
       }
 
       /* À FAIRE */
       .galerie-Pinterest {
-        
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
     }
   </style>
@@ -188,7 +197,9 @@
   <div class="note">grid-column: 1 / -1 pour occuper toute la largeur</div>
   <div class="layout-classique">
     <div class="boite entete">EN-TÊTE</div>
-    <div class="boite contenu-principal">CONTENU PRINCIPAL</div>
+    <div class="boite contenu-principal">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam fugiat magni facilis aperiam repellat totam atque saepe cum, aut autem at, expedita doloremque, quaerat nesciunt doloribus. Ex delectus, earum blanditiis eum impedit id a aut dolore magni eos doloribus labore sequi non iure soluta tempora numquam ullam illum ab sint, aliquid autem nam cumque. Dolores tempora culpa ipsum debitis et porro ratione quam nisi asperiores est, autem expedita commodi, dolor nihil, fuga nesciunt? Sint eveniet voluptatibus, omnis maxime officiis asperiores mollitia optio rerum ab corrupti tempora laborum reprehenderit doloribus molestias inventore odit obcaecati praesentium. Quisquam ipsam exercitationem reiciendis mollitia.
+    </div>
     <div class="boite barre-laterale">SIDEBAR</div>
     <div class="boite pied">PIED DE PAGE</div>
   </div>

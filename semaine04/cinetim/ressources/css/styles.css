@@ -102,7 +102,6 @@ section.vedette {
 .tuile {
     flex: 1 1 0;
     background-color: #fff;
-    /* padding: 1rem; */
     border-radius: 12px;
     min-height: 300px;
     max-height: 300px;
@@ -113,8 +112,11 @@ section.vedette {
     figure {
         margin: 0;
         padding: 0;
+        height: 100%;
+
         img {
             width: 100%;
+            height: 100%;
             object-fit: cover;
         }
 
@@ -130,16 +132,16 @@ section.vedette {
             /* line-height: 60px; */
             padding: 0 1rem;
             font-variant: small-caps;
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
     }
 
     /* Seulement dans la page films.html */
     .description {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        top: -1rem;
+        width: 100%;
+        height: calc(100% - 60px);
         padding: 1rem;
         translate: 0 -100%;
         transition: translate 300ms;
@@ -148,7 +150,7 @@ section.vedette {
     }
 
     &:hover {
-        translate: 0 -4px;
+        /* translate: 0 -4px; */
 
         .description {
             translate: initial;

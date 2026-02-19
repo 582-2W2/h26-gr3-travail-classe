@@ -241,7 +241,13 @@
 
 
         // À FAIRE: Implémenter changerCouleur() pour modifier la variable --accent dynamiquement
-        
+        document.querySelector(".bouton-action").addEventListener("click", changerAccent);
+
+        function changerAccent(params) {
+            // Exercice : changer la couleur d'accent alétoirement
+            document.querySelector("body").style.setProperty("--accent", "orange");
+        }
+
     </script>
 
 </body>
