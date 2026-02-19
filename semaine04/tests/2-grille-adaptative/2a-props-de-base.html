@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grille (grid) - Propriétés de base</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    h2 {
+      color: #333;
+      margin-top: 40px;
+    }
+
+    /* À FAIRE: */
+    .grille-3colonnes {
+      margin-bottom: 40px;
+    }
+
+    /* À FAIRE: */
+    .grille-adaptative {
+      margin-bottom: 40px;
+    }
+
+    /* À FAIRE: */
+    .grille-2x2 {
+      margin-bottom: 40px;
+    }
+
+    /* Style des boîtes */
+    .boite {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #666;
+    }
+
+    /* Couleurs différentes pour les boîtes */
+    .boite:nth-child(1) { background: #e3f2fd; }
+    .boite:nth-child(2) { background: #f3e5f5; }
+    .boite:nth-child(3) { background: #e8f5e9; }
+    .boite:nth-child(4) { background: #fff3e0; }
+    .boite:nth-child(5) { background: #fce4ec; }
+    .boite:nth-child(6) { background: #e0f2f1; }
+  </style>
+</head>
+<body>
+
+  <h1>Démonstration: Grille CSS (Grid) - À COMPLÉTER</h1>
+
+  <!-- EXEMPLE 1 -->
+  <h2>1. Grille simple en 3 colonnes</h2>
+  <p>Chaque colonne prend un espace égal (1fr = 1 fraction d'espace)</p>
+  <div class="grille-3colonnes">
+    <div class="boite">Colonne 1</div>
+    <div class="boite">Colonne 2</div>
+    <div class="boite">Colonne 3</div>
+    <div class="boite">Ligne 2 - Col 1</div>
+    <div class="boite">Ligne 2 - Col 2</div>
+    <div class="boite">Ligne 2 - Col 3</div>
+  </div>
+
+  <!-- EXEMPLE 2 -->
+  <h2>2. Grille adaptative (responsive)</h2>
+  <p>S'adapte automatiquement selon la largeur. Chaque boîte fait min 250px.</p>
+  <div class="grille-adaptative">
+    <div class="boite">Boîte 1</div>
+    <div class="boite">Boîte 2</div>
+    <div class="boite">Boîte 3</div>
+    <div class="boite">Boîte 4</div>
+    <div class="boite">Boîte 5</div>
+    <div class="boite">Boîte 6</div>
+  </div>
+
+  <!-- EXEMPLE 3 -->
+  <h2>3. Grille 2×2 avec hauteur définie</h2>
+  <p>grid-template-rows contrôle la hauteur des lignes</p>
+  <div class="grille-2x2">
+    <div class="boite">Haut-Gauche</div>
+    <div class="boite">Haut-Droit</div>
+    <div class="boite">Bas-Gauche</div>
+    <div class="boite">Bas-Droit</div>
+  </div>
+
+</body>
+</html>

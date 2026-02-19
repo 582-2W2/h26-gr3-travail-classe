@@ -6,6 +6,12 @@
 
 ### ÉTAPE #1 : Interface adaptative et utilisabilité
 
+**Semaine 4**
+- Propriétés personnalisées en CSS ("variables" CSS)
+- Mise en page adaptative (suite)
+- Grille, carrousel, menu de navigation, barre latérale, etc.
+  > Distribution du TP/Volet #1
+
 **Semaine 3**
 - Mise en page adaptative (suite)
 - Les images adaptatives (propriétés CSS de base)

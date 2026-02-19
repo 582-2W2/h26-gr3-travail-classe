@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grille (grid) - Layouts complexes</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    h2 {
+      color: #333;
+      margin-top: 50px;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      background: #fff9e6;
+      padding: 10px;
+      border-left: 4px solid #ff9800;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    /* EXEMPLE 1: Layout classique (en-tête, contenu, sidebar, pied) */
+    /* À FAIRE */
+    .layout-classique {
+     
+      margin-bottom: 40px;
+    }
+
+    /* À FAIRE */
+    .entete {
+      /* Occupe toutes les colonnes */
+
+    }
+
+    /* À FAIRE */
+    .pied {
+      /* Occupe toutes les colonnes */
+
+    }
+
+    /* EXEMPLE 2: Galerie style Pinterest */
+    /* À FAIRE */
+    .galerie-Pinterest {
+      
+      margin-bottom: 40px;
+    }
+
+    /* EXEMPLE 3: Variante Pinterest avec effet masonry (sans alignement par lignes) */
+    /* À FAIRE */
+    .galerie-masonry {
+      
+      margin-bottom: 40px;
+
+      .boite {
+        
+      }
+    }
+
+    /* EXEMPLE 4: Layout asymétrique */
+    /* À FAIRE */
+    .layout-asymetrique {
+
+      margin-bottom: 40px;
+    }
+
+    .boite {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fff;
+      font-size: 18px;
+      min-height: 120px;
+    }
+
+    .entete {
+      background: #1565c0;
+    }
+
+    .contenu-principal {
+      background: #0d47a1;
+    }
+
+    .barre-laterale {
+      background: #283593;
+    }
+
+    .pied {
+      background: #3f51b5;
+    }
+
+    /* Galerie: hauteurs variables */
+    .galerie-Pinterest,
+    .galerie-masonry {
+      .boite:nth-child(1) {
+        min-height: 250px;
+        background: #ff6f00;
+      }
+
+      .boite:nth-child(2) {
+        min-height: 180px;
+        background: #d32f2f;
+      }
+
+      .boite:nth-child(3) {
+        min-height: 220px;
+        background: #388e3c;
+      }
+
+      .boite:nth-child(4) {
+        min-height: 200px;
+        background: #1565c0;
+      }
+
+      .boite:nth-child(5) {
+        min-height: 190px;
+        background: #7b1fa2;
+      }
+
+      .boite:nth-child(6) {
+        min-height: 240px;
+        background: #0097a7;
+      }
+    }
+
+    /* Asymétrique: articles de tailles différentes */
+    .layout-asymetrique {
+      .boite:nth-child(1) {
+        background: #e91e63;
+      }
+
+      .boite:nth-child(2) {
+        background: #9c27b0;
+      }
+
+      .boite:nth-child(3) {
+        background: #673ab7;
+      }
+    }
+
+    /* Plus grand */
+    @media (min-width: 768px) {
+      /* À FAIRE */
+      .layout-classique {
+        
+      }
+
+      /* À FAIRE */
+      .layout-asymetrique {
+        
+
+        /* À FAIRE */
+        .boite:nth-child(1) {
+          
+        }
+      }
+
+      /* À FAIRE */
+      .galerie-Pinterest {
+        
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Grille CSS - Layouts complexes</h1>
+
+  <!-- EXEMPLE 1 -->
+  <h2>1. Layout classique (page web typique)</h2>
+  <div class="note">grid-column: 1 / -1 pour occuper toute la largeur</div>
+  <div class="layout-classique">
+    <div class="boite entete">EN-TÊTE</div>
+    <div class="boite contenu-principal">CONTENU PRINCIPAL</div>
+    <div class="boite barre-laterale">SIDEBAR</div>
+    <div class="boite pied">PIED DE PAGE</div>
+  </div>
+
+  <!-- EXEMPLE 2 -->
+  <h2>2. Galerie adaptative (style Pinterest)</h2>
+  <div class="note">Chaque élément a une hauteur différente. La grille s'adapte automatiquement.</div>
+  <div class="galerie-Pinterest">
+    <div class="boite">Image 1</div>
+    <div class="boite">Image 2</div>
+    <div class="boite">Image 3</div>
+    <div class="boite">Image 4</div>
+    <div class="boite">Image 5</div>
+    <div class="boite">Image 6</div>
+  </div>
+
+  <!-- EXEMPLE 3 -->
+  <h2>3. Variante "masonry"</h2>
+  <div class="note">Ici, on utilise les colonnes CSS (column-width) pour éviter l'alignement en lignes et laisser le
+    navigateur choisir automatiquement le nombre de colonnes.</div>
+  <div class="galerie-masonry">
+    <div class="boite">Image 1</div>
+    <div class="boite">Image 2</div>
+    <div class="boite">Image 3</div>
+    <div class="boite">Image 4</div>
+    <div class="boite">Image 5</div>
+    <div class="boite">Image 6</div>
+  </div>
+
+  <!-- EXEMPLE 4 -->
+  <h2>4. Layout asymétrique</h2>
+  <div class="note">Une colonne 2 fois plus large que l'autre. grid-row: 1 / 3 pour étirer sur 2 lignes.</div>
+  <div class="layout-asymetrique">
+    <div class="boite">Grand élément (2 lignes)</div>
+    <div class="boite">Article 1</div>
+    <div class="boite">Article 2</div>
+  </div>
+
+</body>
+
+</html>
