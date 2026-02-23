@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1b - Navigation adaptative animée - À COMPLÉTER</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background: #eef2f7;
+      color: #111827;
+      overflow-x: hidden;
+    }
+
+    .entete {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .logo {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .nav-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .burger {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.3rem;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+    }
+
+    .burger span {
+      width: 1.5rem;
+      height: 2px;
+      background: currentColor;
+      /* A FAIRE: ajouter une transition pour les transformations */
+      transform-origin: center;
+    }
+
+    .nav-principale {
+      position: fixed;
+      top: 3.5rem;
+      right: 0;
+      width: min(82vw, 20rem);
+      height: calc(100vh - 3.5rem);
+      background: #111827;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1rem;
+
+      /* A FAIRE: préparer un état caché animé (translation/fondu) */
+      pointer-events: none;
+      /* A FAIRE: transition de la navigation */
+    }
+
+    .nav-principale a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-toggle:checked ~ .nav-principale {
+      /* A FAIRE: afficher le panneau quand le menu est ouvert */
+      pointer-events: auto;
+    }
+
+    .nav-toggle:checked + .burger span:nth-child(1) {
+      /* A FAIRE: transformer la première barre */
+    }
+
+    .nav-toggle:checked + .burger span:nth-child(2) {
+      /* A FAIRE: masquer/atténuer la barre du milieu */
+    }
+
+    .nav-toggle:checked + .burger span:nth-child(3) {
+      /* A FAIRE: transformer la troisième barre */
+    }
+
+    main {
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .bloc {
+      background: #fff;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .burger {
+        display: none;
+      }
+
+      .nav-principale {
+        /* A FAIRE: revenir à une navigation visible en ligne sur desktop */
+        pointer-events: auto;
+        background: transparent;
+        padding: 0;
+        margin-left: auto;
+      }
+
+      .nav-principale a {
+        background: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="entete">
+    <a class="logo" href="#">CinéTIM</a>
+
+    <input id="nav-toggle" class="nav-toggle" type="checkbox">
+    <label for="nav-toggle" class="burger" aria-label="Afficher la navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <a href="#">Accueil</a>
+      <a href="#">Films</a>
+      <a href="#">Horaires</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Exemple 1b - Animation CSS (à compléter)</h1>
+    <div class="bloc">But: animer le menu et le bouton burger quand l'état change.</div>
+    <div class="bloc">Conserver une version statique et claire à partir du breakpoint desktop.</div>
+  </main>
+</body>
+</html>

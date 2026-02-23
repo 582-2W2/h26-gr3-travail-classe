@@ -6,6 +6,12 @@
 
 ### ÉTAPE #1 : Interface adaptative et utilisabilité
 
+**Semaine 5**
+- Navigation adaptative (menu "burger" pour *viewport* de petite largeur)
+- Différentes stratégies d’affichage et d’animation de la navigation adaptative
+- Contrôle de l'interactivité du menu de navigation adaptative par CSS/JS
+  > Distribution de l'exercice #2
+
 **Semaine 4**
 - Propriétés personnalisées en CSS ("variables" CSS)
 - Mise en page adaptative (suite)
@@ -17,6 +23,7 @@
 - Les images adaptatives (propriétés CSS de base)
 - Les images adaptatives (éléments PICTURE, IMG, SOURCE, attributs SRCSET et MEDIA)
 - Différentes stratégies de mise en page adaptative
+  > Distribution de l'exercice #1
 
 **Semaine 2**
 - Introduction à la mise en page adaptative (responsive)

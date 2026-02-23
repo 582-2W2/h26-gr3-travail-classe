@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrousel - Scroll horizontal CSS pur</title>
+  <style>
+    :root {
+      --espace: 16px;
+      --radius: 8px;
+      --accent: #2196F3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: var(--espace);
+      background: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: var(--espace);
+    }
+
+    .note {
+      background: #fff9e6;
+      padding: var(--espace);
+      border-left: 4px solid var(--accent);
+      margin-bottom: calc(var(--espace) * 2);
+      font-size: 14px;
+    }
+
+    /* === CARROUSEL 1 === */
+    .carrousel-conteneur {
+      background: white;
+      padding: var(--espace);
+      border-radius: var(--radius);
+      margin-bottom: calc(var(--espace) * 3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* À FAIRE: */
+    /* Conteneur flex, controler overflow, et défilement lisse */
+    /* Bonus : ajuster padding et styles de la barre de défilement */
+    .carrousel {
+      padding: var(--espace) 0;
+    }
+
+    .carte {
+      /* À FAIRE: */
+      /* L'item flex ne peut ni s'étirer ni rétrécir, et il a une largeur fixe de 250px */
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: var(--radius);
+      padding: calc(var(--espace) * 2);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 200px;
+      transition: transform 200ms;
+    }
+
+    .carte:hover {
+      transform: translateY(-5px);
+    }
+
+    .carte:nth-child(1) { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .carte:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .carte:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .carte:nth-child(4) { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .carte:nth-child(5) { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+
+    .carte h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .carte p {
+      margin: var(--espace) 0 0 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* === CARROUSEL 2 === */
+    h2 {
+      color: #333;
+      margin: calc(var(--espace) * 2) 0 var(--espace) 0;
+    }
+
+    /* À FAIRE: */
+    /* Même chose que le premier carrousel */
+    /* Mais ajouter l'anchrage avec la propriété adéquate du module scroll-snap (voir MDN !!) */
+    .carrousel-snap {
+      padding: var(--espace) 0;
+    }
+
+    /* À FAIRE: */
+    /* Aligner l'anchrage (snap) au début de .carte */
+
+    /* === CARROUSEL 3 === */
+    .carrousel-adaptative {
+      /* À FAIRE: */
+      /* Même chose que les carrousels précédents */
+      padding: var(--espace) 0;
+    }
+
+    .carte-adaptative {
+      /* À FAIRE: */
+      /* 2 cartes visibles sur petit écran */
+      /* Donc pas d'étirement, pas de rétrécissement, et largeur fixe de la moitié de la quantité disponible (attention à l'espacement) */
+      background: var(--accent);
+      border-radius: var(--radius);
+      padding: calc(var(--espace) * 2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+    }
+
+    .carte-adaptative:nth-child(odd) {
+      background: #ff9800;
+    }
+
+    @media (min-width: 900px) {
+      .carte-adaptative {
+        /* À FAIRE: */
+        /* 3 cartes sur desktop */
+      }
+    }
+
+    .info-technique {
+      background: #e3f2fd;
+      padding: var(--espace);
+      border-radius: var(--radius);
+      margin: var(--espace) 0;
+      font-size: 12px;
+      font-family: monospace;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Carrousel CSS pur (sans JavaScript)</h1>
+
+  <!-- CARROUSEL 1 -->
+  <div class="carrousel-conteneur">
+    <h2>1. Carrousel simple (scroll horizontal)</h2>
+    <div class="carrousel">
+      <div class="carte">
+        <h3>Élément 1</h3>
+        <p>À FAIRE: Scroll avec la souris ou le trackpad</p>
+      </div>
+      <div class="carte">
+        <h3>Élément 2</h3>
+        <p>À FAIRE: Cartes de largeur fixe</p>
+      </div>
+      <div class="carte">
+        <h3>Élément 3</h3>
+        <p>À FAIRE: Layout flexible</p>
+      </div>
+      <div class="carte">
+        <h3>Élément 4</h3>
+        <p>À FAIRE: Aucun JavaScript!</p>
+      </div>
+      <div class="carte">
+        <h3>Élément 5</h3>
+        <p>À FAIRE: Continuez à scroller</p>
+      </div>
+    </div>
+    <div class="info-technique">
+      À FAIRE: conteneur flex, pas de overflow<br>
+      et carte de largeur fixe sans rétrécir ni s'étirer
+    </div>
+  </div>
+
+  <!-- CARROUSEL 2 -->
+  <div class="carrousel-conteneur">
+    <h2>2. Carrousel avec "anchrage" (s'arrête proprement)</h2>
+    <div class="carrousel-snap">
+      <div class="carte">
+        <h3>Snap 1</h3>
+        <p>À FAIRE: S'arrête à chaque élément</p>
+      </div>
+      <div class="carte">
+        <h3>Snap 2</h3>
+        <p>À FAIRE: scroll-snap-type: x mandatory</p>
+      </div>
+      <div class="carte">
+        <h3>Snap 3</h3>
+        <p>À FAIRE: Plus propre et fluide</p>
+      </div>
+      <div class="carte">
+        <h3>Snap 4</h3>
+        <p>À FAIRE: Parfait pour les galeries</p>
+      </div>
+      <div class="carte">
+        <h3>Snap 5</h3>
+        <p>À FAIRE: À essayer sur mobile</p>
+      </div>
+    </div>
+    <div class="info-technique">
+      Ajout de l'anchrage obligatoire pour le conteneur<br>
+      et l'alignement de l'anchrage pour les éléments
+    </div>
+  </div>
+
+  <!-- CARROUSEL 3 -->
+  <div class="carrousel-conteneur">
+    <h2>3. Carrousel adaptatif (responsive)</h2>
+    <p style="color: #666; margin-bottom: calc(var(--espace) * 2);">
+      À FAIRE: 2 éléments visibles sur mobile, 3 sur desktop
+    </p>
+    <div class="carrousel-adaptative">
+      <div class="carte-adaptative">Item 1</div>
+      <div class="carte-adaptative">Item 2</div>
+      <div class="carte-adaptative">Item 3</div>
+      <div class="carte-adaptative">Item 4</div>
+      <div class="carte-adaptative">Item 5</div>
+      <div class="carte-adaptative">Item 6</div>
+    </div>
+    <div class="info-technique">
+      À FAIRE:<br>
+      deux cartes adaptatives sur mobile<br>
+      et trois cartes sur desktop<br>
+    </div>
+  </div>
+
+</body>
+</html>
