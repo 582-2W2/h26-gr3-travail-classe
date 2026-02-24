@@ -65,11 +65,13 @@
     /* EXEMPLE 3: Variante Pinterest avec effet masonry (sans alignement par lignes) */
     /* À FAIRE */
     .galerie-masonry {
-      
+      column-width: 200px;
       margin-bottom: 40px;
-
+      column-gap: 1rem;
+      
       .boite {
-        
+        break-inside: avoid;
+        margin-bottom: 1rem;
       }
     }
 

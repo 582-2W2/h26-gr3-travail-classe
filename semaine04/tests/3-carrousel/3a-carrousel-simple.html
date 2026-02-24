@@ -45,15 +45,22 @@
     }
 
     /* À FAIRE: */
-    /* Conteneur flex, controler overflow, et défilement lisse */
+    /* Conteneur flex, contrôler overflow, et défilement lisse */
     /* Bonus : ajuster padding et styles de la barre de défilement */
     .carrousel {
+      display: flex;
+      gap: var(--espace);
+      overflow-x: auto;
+      scroll-behavior: smooth;
       padding: var(--espace) 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #e0e0e0;
     }
 
     .carte {
       /* À FAIRE: */
       /* L'item flex ne peut ni s'étirer ni rétrécir, et il a une largeur fixe de 250px */
+      flex: 0 0 250px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border-radius: var(--radius);
       padding: calc(var(--espace) * 2);
@@ -96,16 +103,31 @@
     /* Même chose que le premier carrousel */
     /* Mais ajouter l'anchrage avec la propriété adéquate du module scroll-snap (voir MDN !!) */
     .carrousel-snap {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: var(--espace);
       padding: var(--espace) 0;
+      scroll-snap-type: x mandatory;
+
+      /* À FAIRE: */
+      /* Aligner l'anchrage (snap) au début de .carte */
+      .carte {
+        scroll-snap-align: end;
+      }
     }
 
-    /* À FAIRE: */
-    /* Aligner l'anchrage (snap) au début de .carte */
+    
+
 
     /* === CARROUSEL 3 === */
     .carrousel-adaptative {
       /* À FAIRE: */
       /* Même chose que les carrousels précédents */
+      display: flex;
+      overflow-x: auto;
+      gap: var(--espace);
+      scroll-behavior: smooth;
       padding: var(--espace) 0;
     }
 
@@ -113,6 +135,7 @@
       /* À FAIRE: */
       /* 2 cartes visibles sur petit écran */
       /* Donc pas d'étirement, pas de rétrécissement, et largeur fixe de la moitié de la quantité disponible (attention à l'espacement) */
+      flex: 0 0 calc(50% - var(--espace) / 2);
       background: var(--accent);
       border-radius: var(--radius);
       padding: calc(var(--espace) * 2);
@@ -131,6 +154,7 @@
       .carte-adaptative {
         /* À FAIRE: */
         /* 3 cartes sur desktop */
+        flex: 0 0 calc(33% - var(--espace) / 1.5);
       }
     }
 
