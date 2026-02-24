@@ -145,7 +145,8 @@ section.vedette {
     /* Seulement dans la page films.html */
     .description {
         position: absolute;
-        top: -1rem;
+        top: 0;
+        margin: 0;
         width: 100%;
         height: calc(100% - 60px);
         padding: 1rem;

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recette HTML/CSS pour navigation bouton burger</title>
+
+    <style>
+        #nav-cc {
+            display: none;
+        }
+
+        label {
+            user-select: none;
+            display: inline-flex;
+            width: 100px;
+            height: 100px;
+            flex-direction: column;
+            justify-content: space-between;
+
+            span {
+                flex: 0 0 0.5rem;
+                background-color: black;
+            }
+        }
+
+        .menu {
+            background-color: aqua;
+            translate: -90%;
+            transition: translate 200ms;
+        }
+
+        #nav-cc:checked ~ .menu {
+            translate: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="" id="nav-cc">
+    <label for="nav-cc">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <div class="menu">
+        L'affichage de cette boite est controlé par la case à cocher
+    </div>
+</body>
+</html>
