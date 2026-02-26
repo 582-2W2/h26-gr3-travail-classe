@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1b - Navigation adaptative animée - À COMPLÉTER</title>
+  <title>1b - Navigation adaptative animée</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -54,8 +57,9 @@
       width: 1.5rem;
       height: 2px;
       background: currentColor;
-      /* A FAIRE: ajouter une transition pour les transformations */
       transform-origin: center;
+      /* A FAIRE: ajouter une transition pour les transformations */
+
     }
 
     .nav-principale {
@@ -70,9 +74,11 @@
       gap: 0.4rem;
       padding: 1rem;
 
-      /* A FAIRE: préparer un état caché animé (translation/fondu) */
       pointer-events: none;
+      /* A FAIRE: préparer un état caché animé (translation/fondu) */
+
       /* A FAIRE: transition de la navigation */
+
     }
 
     .nav-principale a {
@@ -83,22 +89,14 @@
       background: rgba(255, 255, 255, 0.06);
     }
 
-    .nav-toggle:checked ~ .nav-principale {
-      /* A FAIRE: afficher le panneau quand le menu est ouvert */
+    .nav-toggle:checked~.nav-principale {
       pointer-events: auto;
+      /* A FAIRE: afficher le panneau quand le menu est ouvert */
+
     }
 
-    .nav-toggle:checked + .burger span:nth-child(1) {
-      /* A FAIRE: transformer la première barre */
-    }
+    /* A FAIRE: transformer les barres du label ("burger") quand la case à cocher est cochée */
 
-    .nav-toggle:checked + .burger span:nth-child(2) {
-      /* A FAIRE: masquer/atténuer la barre du milieu */
-    }
-
-    .nav-toggle:checked + .burger span:nth-child(3) {
-      /* A FAIRE: transformer la troisième barre */
-    }
 
     main {
       max-width: 68rem;
@@ -120,6 +118,7 @@
 
       .nav-principale {
         /* A FAIRE: revenir à une navigation visible en ligne sur desktop */
+
         pointer-events: auto;
         background: transparent;
         padding: 0;
@@ -132,6 +131,7 @@
     }
   </style>
 </head>
+
 <body>
   <header class="entete">
     <a class="logo" href="#">CinéTIM</a>
@@ -157,4 +157,5 @@
     <div class="bloc">Conserver une version statique et claire à partir du breakpoint desktop.</div>
   </main>
 </body>
+
 </html>

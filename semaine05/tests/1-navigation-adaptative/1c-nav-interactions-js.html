@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1c - Navigation adaptative + JS (interactions) - À COMPLÉTER</title>
+  <title>1c - Navigation adaptative + JS (interactions)</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -82,24 +85,24 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .nav-toggle:checked ~ .nav-principale {
+    .nav-toggle:checked~.nav-principale {
       translate: 0 0;
       opacity: 1;
       pointer-events: auto;
     }
 
-    .nav-toggle:checked + .burger span:nth-child(1) {
+    .nav-toggle:checked+.burger span:nth-child(1) {
       rotate: 45deg;
-      translate: 0 6px;
+      translate: 0 7px;
     }
 
-    .nav-toggle:checked + .burger span:nth-child(2) {
+    .nav-toggle:checked+.burger span:nth-child(2) {
       opacity: 0;
     }
 
-    .nav-toggle:checked + .burger span:nth-child(3) {
+    .nav-toggle:checked+.burger span:nth-child(3) {
       rotate: -45deg;
-      translate: 0 -6px;
+      translate: 0 -7px;
     }
 
     main {
@@ -144,6 +147,7 @@
     }
   </style>
 </head>
+
 <body>
   <header class="entete">
     <a class="logo" href="#">CinéTIM</a>
@@ -176,21 +180,22 @@
     const contenuPrincipal = document.querySelector('#contenu-principal');
     const liensMenu = document.querySelectorAll('.nav-principale a');
 
-    function synchroniserEtatMenu() {
-      const menuOuvert = navToggle.checked;
-
-      // A FAIRE: ajuster l'état global de la page quand le menu est ouvert/fermé
-      // (défilement, classe utilitaire, interactions du contenu principal, etc.)
-
-      // Exemple de zone possible à modifier:
-      // nav.style.pointerEvents = menuOuvert ? 'auto' : '';
-    }
-
     // A FAIRE: écouter le changement d'état du contrôle du menu
+
+
+    function synchroniserEtatMenu() {
+      // A FAIRE: ajuster l'état de la page et de la nav quand le menu est ouvert/fermé
+      // (défilement (overflow), interactions du contenu principal et de la nav (pointer-events))
+
+
+    }
 
     // A FAIRE: fermer le menu quand un lien est activé
 
-    // A FAIRE: gérer le retour à un état propre lors du passage en mode desktop
+
+    // A FAIRE: même chose pour le redimensionnement de l'écran (à discuter en classe)
+
   </script>
 </body>
+
 </html>
