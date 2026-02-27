@@ -51,6 +51,7 @@
       width: 2rem;
       height: 2rem;
       cursor: pointer;
+      transition: rotate 200ms;
     }
 
     .burger span {
@@ -76,9 +77,11 @@
 
       pointer-events: none;
       /* A FAIRE: préparer un état caché animé (translation/fondu) */
+      translate: 100%;
+      opacity: 0;
 
       /* A FAIRE: transition de la navigation */
-
+      transition: opacity 200ms, translate 200ms;
     }
 
     .nav-principale a {
@@ -89,14 +92,28 @@
       background: rgba(255, 255, 255, 0.06);
     }
 
-    .nav-toggle:checked~.nav-principale {
+    .nav-toggle:checked ~ .nav-principale {
       pointer-events: auto;
       /* A FAIRE: afficher le panneau quand le menu est ouvert */
-
+      translate: initial;
+      opacity: 1;
     }
 
     /* A FAIRE: transformer les barres du label ("burger") quand la case à cocher est cochée */
-
+    /* .nav-toggle:checked + .burger {
+      rotate: 5.25turn;
+    } */
+    .nav-toggle:checked + label > span:nth-child(1) {
+      translate: 0 7px;
+      rotate: 45deg;
+    }
+    .nav-toggle:checked + label > span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle:checked + label > span:nth-child(3) {
+      translate: 0 -7px;
+      rotate: -45deg;
+    }
 
     main {
       max-width: 68rem;
@@ -118,6 +135,11 @@
 
       .nav-principale {
         /* A FAIRE: revenir à une navigation visible en ligne sur desktop */
+        position: static;
+        height: auto;
+        flex-direction: row;
+        opacity: 1;
+        translate: 0;
 
         pointer-events: auto;
         background: transparent;

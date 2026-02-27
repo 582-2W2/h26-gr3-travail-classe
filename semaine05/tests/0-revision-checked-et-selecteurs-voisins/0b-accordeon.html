@@ -36,8 +36,10 @@
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         }
 
-        main {
+        section {
             background-color: #e3eaf0;
+            /* interpolate-size: allow-keywords; */
+            margin: 2px;
         }
 
         label {
@@ -57,10 +59,13 @@
             color: #f3ece5;
             font-size: 0.9rem;
             /*
-                    Au démarrage la hauteur maximale est de 0px,
-                    le contenu qui déborde est masqué et on déclare
-                    un effet de transition
-                */
+                Au démarrage la hauteur maximale est de 0px,
+                le contenu qui déborde est masqué et on déclare
+                un effet de transition
+            */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
         }
 
         .contenu p {
@@ -70,23 +75,26 @@
 
         .fleche {
             font-size: 2rem;
-            transition: transform 0.5s;
+            transition: rotate 0.5s;
         }
 
         /*Gestion de la case à cocher et apparition du texte*/
-        #montrer-texte:checked+label>.fleche {
+        input[id^="acc"]:checked + label > .fleche {
             /*Rotation de la flèche */
+            rotate: 180deg;
         }
 
-        #montrer-texte:checked~.contenu {
+        input[id^="acc"]:checked ~ .contenu {
             /*
-                    Pour le texte, on met une grande hauteur maximale,
-                    pour s'assurer que la hauteur soit OK sur tous les périphériques
-                */
+                Pour le texte, on met une grande hauteur maximale,
+                pour s'assurer que la hauteur soit OK sur tous les périphériques
+            */
+            max-height: 1000px;
         }
 
-        #montrer-texte {
+        input[id^="acc"] {
             /* On dissimule la case à cocher */
+            display: none;
         }
     </style>
 </head>
@@ -97,8 +105,44 @@
     </header>
 
     <section>
-        <input type="checkbox" id="montrer-texte" />
-        <label for="montrer-texte"><span>Ouvrir pour voir la description</span>
+        <input type="radio" name="accordeon" id="acc1" />
+        <label for="acc1"><span>Ouvrir pour voir la description</span>
+            <span class="material-icons fleche">expand_more</span>
+        </label>
+
+        <div class="contenu">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+            </p>
+            <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint
+                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </section>
+    <section>
+        <input type="radio" name="accordeon" id="acc2" />
+        <label for="acc2"><span>Ouvrir pour voir la description</span>
+            <span class="material-icons fleche">expand_more</span>
+        </label>
+
+        <div class="contenu">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit commodi vitae est et, assumenda soluta? Rem quas asperiores pariatur voluptate vero! Nam delectus magni magnam eligendi obcaecati, soluta quis velit modi quas consequuntur neque alias molestiae! Tenetur doloribus consequatur debitis optio similique voluptas adipisci facilis quaerat omnis at quasi rem error vero non atque sint iusto magnam, asperiores repellendus blanditiis sapiente? Aut accusamus in consequuntur? Quis odit veniam possimus! Non itaque illo dicta perferendis possimus inventore exercitationem voluptas culpa repellendus nulla aliquam assumenda sit repellat dolorum eaque, incidunt ipsa labore natus ea reprehenderit doloremque omnis. Eligendi explicabo perspiciatis velit quas vero, consectetur suscipit! Quis at nostrum quasi excepturi tempora cum porro, eligendi quo velit magni id tenetur fuga harum vitae provident architecto autem maxime laboriosam! Ex minus beatae ipsa! Maxime doloremque cumque quibusdam culpa! Recusandae aperiam eligendi provident, commodi et voluptates similique hic dignissimos est, explicabo ex, magnam deserunt laudantium modi cupiditate nemo rem impedit fugit ipsam soluta sit eius? Repellat eius nemo officiis, sunt quam expedita, similique earum, veritatis corporis voluptas sequi! Est nobis soluta quos at cumque atque in ea dolore eos quis voluptate aliquam distinctio, iste voluptatibus cupiditate aliquid quod odit explicabo vitae facilis alias aperiam totam!
+            </p>
+        </div>
+    </section>
+    <section>
+        <input type="radio" name="accordeon" id="acc3" />
+        <label for="acc3"><span>Ouvrir pour voir la description</span>
             <span class="material-icons fleche">expand_more</span>
         </label>
 

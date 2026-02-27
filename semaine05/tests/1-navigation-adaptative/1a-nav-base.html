@@ -59,6 +59,8 @@
 
     .nav-principale {
       /* A FAIRE: masquer le menu sur mobile, puis prévoir sa direction */
+      display: none;
+      flex-direction: column;
       gap: 0.5rem;
       background: #0b1220;
       padding: 0.75rem 1rem 1rem;
@@ -76,7 +78,9 @@
     }
 
     /* A FAIRE: afficher la nav quand le contrôle (checkbox) est actif (checked) */
-
+    #nav-toggle:checked ~ .nav-principale {
+      display: flex;
+    }
 
     main {
       max-width: 60rem;
@@ -87,10 +91,13 @@
     @media (min-width: 768px) {
       .burger {
         /* A FAIRE: masquer le bouton burger sur plus grand écran */
+        display: none;
       }
 
       .nav-principale {
         /* A FAIRE: rendre la navigation visible en ligne sur desktop */
+        display: flex;
+        flex-direction: row;
         background: transparent;
         padding: 0;
         margin-left: auto;
