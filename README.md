@@ -4,6 +4,14 @@
 
 ## Calendrier des activités
 
+### ÉTAPE #2 : Programmer et intégrer des animations de l’interface utilisateur
+
+**Semaine 6**
+- Animations CSS (début)
+- Les animations par images clés (@keyframes)
+- Leurs propriétés essentielles
+  > Production TP/Volet #1
+
 ### ÉTAPE #1 : Interface adaptative et utilisabilité
 
 **Semaine 5**
@@ -11,6 +19,7 @@
 - Différentes stratégies d’affichage et d’animation de la navigation adaptative
 - Contrôle de l'interactivité du menu de navigation adaptative par CSS/JS
   > Distribution de l'exercice #2
+  > Production TP/Volet #1
 
 **Semaine 4**
 - Propriétés personnalisées en CSS ("variables" CSS)

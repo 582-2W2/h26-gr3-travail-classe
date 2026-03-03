@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1 - Syntaxe de base des images-clés (incomplet)</title>
+  <style>
+    :root {
+      --fond: #f8fafc;
+      --piste: #e2e8f0;
+      --balle: #f97316;
+      --texte: #0f172a;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      padding: 2rem;
+
+      .zone {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .piste {
+        background: var(--piste);
+        border-radius: 999px;
+        height: 16px;
+        position: relative;
+        margin-top: 2rem;
+      }
+
+      .balle {
+        width: 48px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--balle);
+        position: absolute;
+        top: -16px;
+        
+        /* À compléter : appliquer l'animation et ses propriétés */
+        
+      }
+    }
+
+    /* À compléter : ajouter les étapes from/to de l'animation glisser pour déplacer la balle horizontalement. */
+    
+  </style>
+</head>
+<body>
+  <div class="zone">
+    <h1>1 - Syntaxe de base</h1>
+    <p>Compléter la définition de <code>@keyframes glisser</code>.</p>
+    <div class="piste"><div class="balle" aria-hidden="true"></div></div>
+  </div>
+</body>
+</html>

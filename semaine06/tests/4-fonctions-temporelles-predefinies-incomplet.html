@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4 - Fonctions temporelles prédéfinies (incomplet)</title>
+  <style>
+    :root {
+      --fond: #020617;
+      --carte: #0f172a;
+      --texte: #e2e8f0;
+      --piste: #1e293b;
+      --point: #38bdf8;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      padding: 2rem;
+
+      .contenu { max-width: 920px; margin: 0 auto; }
+
+      .ligne {
+        background: var(--carte);
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: .8rem;
+        margin-bottom: .7rem;
+
+        .etiquette { margin: 0 0 .4rem; font-size: .95rem; opacity: .9; }
+
+        .piste { height: 10px; border-radius: 999px; background: var(--piste); position: relative; }
+
+        .point {
+          width: 18px;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background: var(--point);
+          position: absolute;
+          top: -4px;
+          animation-name: avancer;
+          animation-duration: 2.4s;
+          animation-iteration-count: infinite;
+        }
+      }
+
+      .linear .point { animation-timing-function: linear; }
+      .ease .point { animation-timing-function: ease; }
+      .ease-in .point { animation-timing-function: ease-in; }
+      .ease-out .point { animation-timing-function: ease-out; }
+      .ease-in-out .point { animation-timing-function: ease-in-out; }
+      .step-start .point { animation-timing-function: step-start; }
+      /* À compléter : ajouter la règle CSS pour que la ligne step-end utilise animation-timing-function: step-end. */
+    }
+
+    @keyframes avancer {
+      from { transform: translateX(0); }
+      to { transform: translateX(820px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenu">
+    <h1>4 - Fonctions temporelles prédéfinies</h1>
+    <div class="ligne linear"><p class="etiquette">linear</p><div class="piste"><div class="point"></div></div></div>
+    <div class="ligne ease"><p class="etiquette">ease</p><div class="piste"><div class="point"></div></div></div>
+    <div class="ligne ease-in"><p class="etiquette">ease-in</p><div class="piste"><div class="point"></div></div></div>
+    <div class="ligne ease-out"><p class="etiquette">ease-out</p><div class="piste"><div class="point"></div></div></div>
+    <div class="ligne ease-in-out"><p class="etiquette">ease-in-out</p><div class="piste"><div class="point"></div></div></div>
+    <div class="ligne step-start"><p class="etiquette">step-start</p><div class="piste"><div class="point"></div></div></div>
+    <div class="ligne step-end"><p class="etiquette">step-end</p><div class="piste"><div class="point"></div></div></div>
+  </div>
+</body>
+</html>
