@@ -43,7 +43,7 @@
 
     .nav-toggle {
       position: absolute;
-      opacity: 1;
+      opacity: 0;
       pointer-events: none;
     }
 
@@ -234,8 +234,8 @@
     // }
 
     // Boucle "déclarative"
-    for (const unLien of liensMenu) {
-      unLien.addEventListener("click", gererClicLien);
+    for (const lien of liensMenu) {
+      lien.addEventListener("click", gererClicLien);
     }
 
     function gererClicLien() {
@@ -244,14 +244,7 @@
     }
 
     // A FAIRE: même chose pour le redimensionnement de l'écran (à discuter en classe)
-    window.addEventListener("resize", gererRedimensionFenetre);
 
-    function gererRedimensionFenetre() {
-      if(window.innerWidth >= 768 && navToggle.checked) {
-        navToggle.checked = false;
-        synchroniserEtatMenu();
-      }
-    }
   </script>
 </body>
 
