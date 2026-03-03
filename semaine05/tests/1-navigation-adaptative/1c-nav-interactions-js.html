@@ -10,6 +10,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -39,7 +43,7 @@
 
     .nav-toggle {
       position: absolute;
-      opacity: 0;
+      opacity: 1;
       pointer-events: none;
     }
 
@@ -110,6 +114,13 @@
       margin: 0 auto;
       padding: 1rem;
       transition: filter 220ms ease;
+
+      section {
+        /* margin-top: 1rem; */
+        h2 {
+          margin-top: 3rem;
+        }
+      }
     }
 
     body.menu-ouvert main {
@@ -148,7 +159,7 @@
   </style>
 </head>
 
-<body>
+<body id="accueil">
   <header class="entete">
     <a class="logo" href="#">CinéTIM</a>
 
@@ -160,18 +171,31 @@
     </label>
 
     <nav class="nav-principale" aria-label="Navigation principale">
-      <a href="#">Accueil</a>
-      <a href="#">Films</a>
-      <a href="#">Horaires</a>
-      <a href="#">Contact</a>
+      <a href="#accueil">Accueil</a>
+      <a href="#films">Films</a>
+      <a href="#horaires">Horaires</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="contenu-principal">
     <h1>Exemple 1c - CSS + JS (à compléter)</h1>
-    <div class="carte">Ajouter une gestion JS pour verrouiller l'arrière-plan lorsque le menu mobile est ouvert.</div>
-    <div class="carte">Prévoir aussi la fermeture automatique du menu sur interaction avec un lien.</div>
-    <div class="carte">Maintenir un comportement cohérent lors d'un redimensionnement d'écran.</div>
+    <section class="carte" id="films">
+      <h2>Films</h2>
+      Ajouter une gestion JS pour verrouiller l'arrière-plan lorsque le menu mobile est ouvert.
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, eum dolorum. Saepe praesentium vitae molestiae nesciunt quo perspiciatis aperiam impedit ipsum tenetur qui! Fugiat consequuntur ad nobis totam est, excepturi at illum minus tempora. Consectetur temporibus, dolorem perspiciatis repellendus veritatis quam expedita iure id fugiat optio explicabo. Dicta ea, a quae praesentium voluptas deserunt tenetur vel, eligendi tempora odio, dolore unde necessitatibus. Minus commodi cupiditate quaerat necessitatibus sunt? Eveniet qui quas aliquam saepe reprehenderit esse autem doloribus animi provident similique rem repudiandae ab culpa consequuntur explicabo beatae unde, et laudantium dolorem reiciendis fuga necessitatibus vero! Voluptatem aspernatur nemo eius facere.</p>
+    </section>
+    <section class="carte" id="horaires">
+      <h2>Horaires</h2>
+      Prévoir aussi la fermeture automatique du menu sur interaction avec un lien.
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illo doloremque reprehenderit aliquid corrupti exercitationem ea nulla, laborum, magni repudiandae cumque praesentium, cupiditate saepe possimus suscipit. Accusamus veniam non quam. Ad quae rerum nam quisquam alias voluptas assumenda expedita? Pariatur non minima libero a ullam hic illum tenetur cum explicabo sapiente recusandae illo, dolorum amet quasi eum accusantium ipsa velit iste quaerat similique error! Ipsa, iste facere nisi doloremque dignissimos eveniet sunt cum officia quis eligendi nemo laudantium eius accusantium alias soluta repellendus possimus. Atque iste accusantium excepturi veniam dolorem vel? Quisquam magni at autem. Laborum sint, pariatur nihil porro perspiciatis error nesciunt veritatis corporis maxime a rerum laboriosam delectus quaerat labore id quis. Eveniet debitis optio aut quis sint neque, illo iste vel consequuntur?</p>
+      <p>Voluptatem alias in sequi eius amet numquam error corporis quam exercitationem illo corrupti optio nemo, quia reiciendis veniam eligendi officia totam consequuntur unde animi placeat quo ab quisquam illum. Rem iusto praesentium dolor. Enim autem adipisci at quae aliquid placeat voluptatibus ullam quam inventore! Officia repellendus modi dignissimos enim fuga voluptatum dolor amet aut possimus voluptate id at omnis rerum dolorem recusandae, labore nulla doloremque culpa quos aliquid fugit nobis. Voluptatibus, nostrum. Assumenda ut commodi quaerat nobis illum molestias ipsa enim eaque odit dolor veniam fuga dolore consectetur pariatur illo, debitis ad animi nisi quae sit esse. Eum voluptatum veritatis quo, accusamus vitae laudantium maxime nulla ad facilis doloribus, velit minus omnis corrupti doloremque possimus, placeat aspernatur ipsum provident atque architecto! Totam nemo repudiandae expedita.</p>
+    </section>
+    <section class="carte" id="contact">
+      <h2>Contact</h2>
+      Maintenir un comportement cohérent lors d'un redimensionnement d'écran.
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores praesentium quod quam repellendus sint ipsum! Nihil unde aperiam magnam vero corrupti. Sunt perspiciatis ipsa, voluptatem temporibus beatae commodi distinctio iusto ullam ab illo adipisci, unde provident pariatur odit! Iure nulla veniam officia temporibus, velit amet? Quas totam, omnis labore reiciendis veritatis optio, sit libero molestiae quam ad, assumenda autem nam beatae doloribus modi. Hic officia nihil nostrum molestias quo asperiores sequi a? Quidem nostrum sit doloribus nobis esse officiis vitae explicabo earum veritatis fuga! Porro nemo explicabo, tempore consequuntur reiciendis recusandae pariatur suscipit nisi voluptatem consectetur. Culpa nobis tempora consequatur corporis possimus excepturi saepe quod vitae amet provident aperiam voluptatibus numquam, asperiores similique quas expedita harum est ipsum officiis maxime quae impedit veniam iure! Aut libero laudantium rem autem debitis iste, ipsam saepe consectetur velit nulla blanditiis deserunt ipsa non, quia, fugiat nihil consequatur perferendis voluptate? Aspernatur dignissimos perspiciatis non repudiandae assumenda hic magni asperiores obcaecati sequi. Error animi, cupiditate modi incidunt culpa sed nesciunt, obcaecati, perferendis quos architecto est deleniti? Nobis non deserunt molestias at ratione veniam fugit nemo dolores fuga excepturi, molestiae, quibusdam quaerat ducimus velit? Asperiores ipsa itaque cum accusamus porro maxime nobis molestias laborum, architecto magnam!</p>
+    </section>
   </main>
 
   <script>
@@ -181,20 +205,53 @@
     const liensMenu = document.querySelectorAll('.nav-principale a');
 
     // A FAIRE: écouter le changement d'état du contrôle du menu
-
+    navToggle.addEventListener("change", synchroniserEtatMenu)
 
     function synchroniserEtatMenu() {
       // A FAIRE: ajuster l'état de la page et de la nav quand le menu est ouvert/fermé
       // (défilement (overflow), interactions du contenu principal et de la nav (pointer-events))
-
+      console.log("État de la case à cochée (cochée ou pas) : ", navToggle.checked);
+      // if(navToggle.checked === true) {
+      //   document.body.style.overflowY = "hidden";
+      // }
+      // else {
+      //   document.body.style.overflowY = "";
+      // }
+      
+      // On remplace l'instruction conditionnelle par l'expression avec l'opérateur ternaire.
+      document.body.style.overflowY = navToggle.checked ? "hidden" : "";
 
     }
 
     // A FAIRE: fermer le menu quand un lien est activé
+    console.log("Les liens attrapés avec querySelectorAll : ", liensMenu);
+    // Parcourir le "tableau" liensMenu
+    // On peut utiliser while(), for(), for...of, et .forEach()
 
+    // Boucle "impérative"
+    // for(let i=0; i<liensMenu.length; i++) {
+    //   liensMenu[i].addEventListener("click", gererClicLien)
+    // }
+
+    // Boucle "déclarative"
+    for (const unLien of liensMenu) {
+      unLien.addEventListener("click", gererClicLien);
+    }
+
+    function gererClicLien() {
+      navToggle.checked = false;
+      synchroniserEtatMenu();
+    }
 
     // A FAIRE: même chose pour le redimensionnement de l'écran (à discuter en classe)
+    window.addEventListener("resize", gererRedimensionFenetre);
 
+    function gererRedimensionFenetre() {
+      if(window.innerWidth >= 768 && navToggle.checked) {
+        navToggle.checked = false;
+        synchroniserEtatMenu();
+      }
+    }
   </script>
 </body>
 
