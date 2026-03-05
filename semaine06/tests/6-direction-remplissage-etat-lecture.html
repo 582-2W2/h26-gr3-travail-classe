@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 - Direction, remplissage et état de lecture</title>
+  <style>
+    :root {
+      --fond: #fff7ed;
+      --texte: #431407;
+      --carte: #ffedd5;
+      --accent: #ea580c;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      padding: 2rem;
+
+      .conteneur {
+        max-width: 880px;
+        margin: 0 auto;
+      }
+
+      .rang {
+        background: var(--carte);
+        border: 1px solid #fdba74;
+        border-radius: 12px;
+        padding: .9rem;
+        margin-bottom: .8rem;
+
+        .titre {
+          margin: 0 0 .6rem;
+          font-weight: 650;
+        }
+
+        .boite {
+          width: 70px;
+          height: 28px;
+          border-radius: 8px;
+          background: var(--accent);
+          animation-name: glissement;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+        }
+      }
+
+      .reverse .boite {
+        animation-direction: reverse;
+      }
+
+      .alternate .boite {
+        animation-direction: alternate;
+      }
+
+      .remplissage {
+        .boite {
+          animation-iteration-count: 1;
+          /* À compléter : ajouter la propriété pour conserver l'état final après l'animation. */
+
+        }
+      }
+
+      .pause-survol {
+        .boite {
+          /* À compléter : animer la boîte dans les deux directions  */
+
+          /* À compléter : arrêter l'animation lorsque la boîte est survolée  */
+
+        }
+      }
+    }
+
+    /* Corriger les déplacement en unités relatives */
+    @keyframes glissement {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(740px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="conteneur">
+    <h1>6 - Direction, remplissage et état de lecture</h1>
+    <div class="rang reverse">
+      <p class="titre">Direction: reverse</p>
+      <div class="boite"></div>
+    </div>
+    <div class="rang alternate">
+      <p class="titre">Direction: alternate</p>
+      <div class="boite"></div>
+    </div>
+    <div class="rang remplissage">
+      <p class="titre">Fill-mode</p>
+      <div class="boite"></div>
+    </div>
+    <div class="rang pause-survol">
+      <p class="titre">Play-state au survol</p>
+      <div class="boite"></div>
+    </div>
+  </div>
+</body>
+
+</html>

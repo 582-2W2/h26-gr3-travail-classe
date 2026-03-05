@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 - Animation par étapes (steps)</title>
+  <style>
+    :root {
+      --fond: #020617;
+      --carte: #0f172a;
+      --texte: #e2e8f0;
+      --piste: #1e293b;
+      --bordure: #334155;
+      --accent: #22d3ee;
+      --accent-2: #a78bfa;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      padding: 2rem;
+
+      .contenu {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
+      .ligne {
+        background: var(--carte);
+        border: 1px solid var(--bordure);
+        border-radius: 12px;
+        padding: .9rem;
+        margin-bottom: .8rem;
+
+        .titre {
+          margin: 0 0 .4rem;
+          font-weight: 650;
+        }
+
+        .explication {
+          margin: 0 0 .6rem;
+          font-size: .95rem;
+          opacity: .9;
+        }
+
+        .piste {
+          height: 14px;
+          border-radius: 999px;
+          background: repeating-linear-gradient(
+              90deg,
+              #1e293b 0,
+              #1e293b calc(20% - 1px),
+              #0b1222 calc(20% - 1px),
+              #0b1222 20%
+            );
+          overflow: hidden;
+        }
+
+        .barre {
+          height: 100%;
+          width: 0;
+          border-radius: inherit;
+          background: linear-gradient(90deg, var(--accent), var(--accent-2));
+          animation-name: progresser;
+          animation-duration: 2.8s;
+          animation-iteration-count: infinite;
+        }
+      }
+
+      .linear .barre {
+        animation-timing-function: linear;
+      }
+
+      /* À compléter : la troisième ligne s'agrandit par étape (sur 5 saut) */
+      
+    }
+
+    @keyframes progresser {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenu">
+    <h1>5 - Animation par étapes (<code>steps()</code>)</h1>
+    <p>Même animation sur 5 paliers, avec trois rythmes différents.</p>
+
+    <div class="ligne steps-end">
+      <p class="titre">Fonction temporelle par défaut (ease)</p>
+      <p class="explication">La larguer augmente doucement, accélère au milieu, puis ralentit en fin</p>
+      <div class="piste">
+        <div class="barre"></div>
+      </div>
+    </div>
+
+    <div class="ligne linear">
+      <p class="titre">linear</p>
+      <p class="explication">La largeur augmente de façon continue.</p>
+      <div class="piste">
+        <div class="barre"></div>
+      </div>
+    </div>
+
+    <div class="ligne steps-start">
+      <p class="titre">steps(5, start)</p>
+      <p class="explication">Le premier saut arrive immédiatement au départ.</p>
+      <div class="piste">
+        <div class="barre"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

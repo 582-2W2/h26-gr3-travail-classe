@@ -188,6 +188,29 @@ Ordre courant (souple, mais à garder lisible) :
 - Animer surtout les changements d'état importants
 - Prévoir l'accessibilité avec `prefers-reduced-motion`
 
+### Fiche-résumé : performance des animations
+
+#### Étapes de rendu du navigateur
+1. `Style` : calcule les styles finaux.
+2. `Layout` (**reflow**) : calcule tailles et positions.
+3. `Paint` (**repaint**) : dessine les pixels.
+4. `Composite` : assemble les calques à l'écran.
+
+Règle générale de coût : `reflow` > `repaint` > `composite`.
+
+#### Quoi animer (et quoi éviter)
+
+| À privilégier | Pourquoi | À éviter en animation continue | Pourquoi |
+|---|---|---|---|
+| `transform` (`translate`, `scale`, `rotate`) | Souvent géré au niveau composite, plus fluide | `top`, `right`, `bottom`, `left` | Déclenche souvent layout + paint |
+| `opacity` | Peu coûteux, transitions douces | `width`, `height` | Reflow fréquent si animé en continu |
+| `filter` (usage modéré) | Effets visuels sans déplacer le layout | `margin`, `padding` | Modifie la géométrie, recalculs possibles |
+
+#### Cas fréquent : ouvrir/fermer une boîte sans `height`
+- Mouvement visuel fluide : `transform: scaleY(...)` (n'affecte pas l'espace du layout).
+- Ouverture qui pousse réellement le contenu : `max-height` ou `grid-template-rows: 0fr -> 1fr`.
+- Pour un déplacement horizontal/vertical : préférer `transform: translate(...)` à `left/top`.
+
 ### Respect de la réduction de mouvement
 ```css
 @media (prefers-reduced-motion: reduce) {

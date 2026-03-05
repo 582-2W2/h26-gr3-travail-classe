@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3 - Durée, délai et itérations (incomplet)</title>
+  <title>3 - Durée, délai et itérations</title>
   <style>
     :root {
       --fond: #f1f5f9;
@@ -21,7 +22,7 @@
       padding: 2rem;
 
       .grille {
-        max-width: 900px;
+        max-width: 90vw;
         margin: 0 auto;
         display: grid;
         gap: 1rem;
@@ -42,7 +43,7 @@
           width: 22px;
           aspect-ratio: 1;
           border-radius: 50%;
-          
+
           animation-name: aller-retour;
           animation-duration: 2s;
           animation-direction: alternate;
@@ -51,32 +52,52 @@
 
       .duree-courte .point {
         background: var(--couleur-1);
-        animation-duration: 800ms;
+        /* À compléter : la durée de cette animation est réduite de moitié. */
+
       }
 
       .avec-delai .point {
         background: var(--couleur-2);
-        /* À compléter : ajouter un délai de 1 seconde avant le départ de cette animation. */
+        /* À compléter : un délai de 1 seconde avant le départ de cette animation. */
+
       }
 
       .iterations-limitees .point {
         background: var(--couleur-3);
-        animation-iteration-count: 3;
+        /* À compléter : cette animation est répétées 5 fois. */
+
       }
     }
 
     @keyframes aller-retour {
-      from { transform: translateX(0); }
-      to { transform: translateX(760px); }
+      from {
+        translate: 0;
+      }
+
+      to {
+        /* À compléter : corriger la valeur pour que le point soit animé jusqu'au bout de la ligne */
+        translate: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="grille">
     <h1>3 - Durée, délai et itérations</h1>
-    <div class="ligne duree-courte"><p class="etiquette">Durée courte</p><div class="point"></div></div>
-    <div class="ligne avec-delai"><p class="etiquette">Avec délai</p><div class="point"></div></div>
-    <div class="ligne iterations-limitees"><p class="etiquette">Itérations limitées</p><div class="point"></div></div>
+    <div class="ligne duree-courte">
+      <p class="etiquette">Durée courte</p>
+      <div class="point"></div>
+    </div>
+    <div class="ligne avec-delai">
+      <p class="etiquette">Avec délai</p>
+      <div class="point"></div>
+    </div>
+    <div class="ligne iterations-limitees">
+      <p class="etiquette">Itérations limitées</p>
+      <div class="point"></div>
+    </div>
   </div>
 </body>
+
 </html>
