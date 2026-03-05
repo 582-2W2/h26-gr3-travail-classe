@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1c - Navigation adaptative + JS (interactions)</title>
@@ -48,22 +49,26 @@
     }
 
     .burger {
-      display: inline-flex;
+      /* display: inline-flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 0.3rem;
+      justify-content: center; */
       width: 2rem;
       height: 2rem;
       cursor: pointer;
+      transition: rotate 200ms;
+
+      &:hover {
+        font-size: 2rem;
+        color: orange;
+        font-weight: bold;
+      }
+      
     }
 
-    .burger span {
-      width: 1.5rem;
-      height: 2px;
-      background: currentColor;
-      transition: rotate 220ms ease, translate 220ms ease, opacity 220ms ease;
+    .nav-toggle:checked + .burger {
       transform-origin: center;
-    }
+      rotate: -90deg;
+    } 
 
     .nav-principale {
       position: fixed;
@@ -95,19 +100,7 @@
       pointer-events: auto;
     }
 
-    .nav-toggle:checked+.burger span:nth-child(1) {
-      rotate: 45deg;
-      translate: 0 7px;
-    }
 
-    .nav-toggle:checked+.burger span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle:checked+.burger span:nth-child(3) {
-      rotate: -45deg;
-      translate: 0 -7px;
-    }
 
     main {
       max-width: 70rem;
@@ -164,10 +157,9 @@
     <a class="logo" href="#">CinéTIM</a>
 
     <input id="nav-toggle" class="nav-toggle" type="checkbox">
-    <label for="nav-toggle" class="burger" aria-label="Afficher la navigation">
-      <span></span>
-      <span></span>
-      <span></span>
+    <label for="nav-toggle" class="burger material-icons" aria-label="Afficher la navigation">
+      <span class="material-icons">close</span>
+      <span class="material-icons">menu</span>
     </label>
 
     <nav class="nav-principale" aria-label="Navigation principale">
@@ -182,7 +174,7 @@
     <h1>Exemple 1c - CSS + JS (à compléter)</h1>
     <section class="carte" id="films">
       <h2>Films</h2>
-      Ajouter une gestion JS pour verrouiller l'arrière-plan lorsque le menu mobile est ouvert.
+      <a href="http://www.google.ca">Ajouter</a> une gestion JS pour verrouiller l'arrière-plan lorsque le menu mobile est ouvert.
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, eum dolorum. Saepe praesentium vitae molestiae nesciunt quo perspiciatis aperiam impedit ipsum tenetur qui! Fugiat consequuntur ad nobis totam est, excepturi at illum minus tempora. Consectetur temporibus, dolorem perspiciatis repellendus veritatis quam expedita iure id fugiat optio explicabo. Dicta ea, a quae praesentium voluptas deserunt tenetur vel, eligendi tempora odio, dolore unde necessitatibus. Minus commodi cupiditate quaerat necessitatibus sunt? Eveniet qui quas aliquam saepe reprehenderit esse autem doloribus animi provident similique rem repudiandae ab culpa consequuntur explicabo beatae unde, et laudantium dolorem reiciendis fuga necessitatibus vero! Voluptatem aspernatur nemo eius facere.</p>
     </section>
     <section class="carte" id="horaires">
@@ -220,6 +212,9 @@
       
       // On remplace l'instruction conditionnelle par l'expression avec l'opérateur ternaire.
       document.body.style.overflowY = navToggle.checked ? "hidden" : "";
+
+      // On va rendre le contenu principal "transparent" aux événements de pointeurs (souris par exemple)
+      contenuPrincipal.style.pointerEvents = navToggle.checked ? "none" : "";
 
     }
 

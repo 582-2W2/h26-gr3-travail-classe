@@ -26,13 +26,44 @@
         font-size: 5rem;
         display: inline-block;
         /* À compléter : appliquer l'animation */
-        
+        animation-name: danse-etoile;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+          animation-play-state: paused;
+        }
       }
     }
 
     @keyframes danse-etoile {
-      /* À compléter : définir les 4 images clés */
-
+      /* À compléter : définir les 5 images clés */
+      0%, 100% {
+        translate: 0 0;
+        rotate: 0;
+        scale: 1;
+        color: #fde047;
+      }
+      25% {
+        translate: 0 -24px;
+        rotate: 10deg;
+        scale: 2;
+      }
+      50% {
+        translate: 0 0;
+        rotate: 0deg;
+        scale: 0.5;
+        color: rgb(30, 167, 12);
+      }
+      75% {
+        translate: 0 -14px;
+        rotate: -10deg;
+        scale: 1.05;
+        color: orange;
+      }
     }
   </style>
 </head>

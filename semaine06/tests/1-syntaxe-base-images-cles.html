@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +21,13 @@
       padding: 2rem;
 
       .zone {
-        max-width: 720px;
+        width: 90vw;
         margin: 0 auto;
       }
 
       .piste {
         background: var(--piste);
-        border-radius: 999px;
+        border-radius: 8px;
         height: 16px;
         position: relative;
         margin-top: 2rem;
@@ -39,21 +40,41 @@
         background: var(--balle);
         position: absolute;
         top: -16px;
-        
+
         /* À compléter : appliquer l'animation et ses propriétés */
-        
+        animation-name: deplacer-balle;
+        animation-duration: 1s;
+        /* animation-iteration-count: infinite; */
+        animation-direction: alternate;
+        animation-timing-function: ease-out;
+        /* animation-fill-mode: forwards; */
+        animation-fill-mode: both;
+        animation-delay: 2s;
       }
     }
 
     /* À compléter : ajouter les étapes from/to de l'animation glisser pour déplacer la balle horizontalement. */
-    
+    /* Déclarer (ou définir) une animation (par images-clés) */
+    @keyframes deplacer-balle {
+      from {
+        translate: 100px;
+      }
+      to {
+        translate: calc(90vw - 48px);
+      }
+    }
+
   </style>
 </head>
+
 <body>
   <div class="zone">
     <h1>1 - Syntaxe de base</h1>
     <p>Compléter la définition de <code>@keyframes glisser</code>.</p>
-    <div class="piste"><div class="balle" aria-hidden="true"></div></div>
+    <div class="piste">
+      <div class="balle" aria-hidden="true"></div>
+    </div>
   </div>
 </body>
+
 </html>
