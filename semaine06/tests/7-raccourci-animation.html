@@ -33,7 +33,7 @@
         font-weight: 700;
 
         /* À compléter : écrire la propriété raccourcie animation complète en une ligne. */
-
+        animation: bulle-pop 1s ease-in-out 500ms  both 3 alternate;
 
         /* À compléter : l'animation est arrêtée sur survol de la bulle. */
     
@@ -50,6 +50,12 @@
 
     @keyframes bulle-pop {
       /* À compléter : définir une animation en 2 images clés qui fait "battre" la bulle */
+      from {
+        translate: 0 0;
+      }
+      to {
+        translate: 0 -2rem;
+      }
     }
   </style>
 </head>

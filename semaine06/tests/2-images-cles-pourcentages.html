@@ -27,7 +27,7 @@
         display: inline-block;
         /* À compléter : appliquer l'animation */
         animation-name: danse-etoile;
-        animation-duration: 1s;
+        animation-duration: 10s;
         animation-iteration-count: infinite;
         animation-direction: alternate;
         cursor: pointer;
@@ -41,13 +41,13 @@
 
     @keyframes danse-etoile {
       /* À compléter : définir les 5 images clés */
-      0%, 100% {
+      from, to {
         translate: 0 0;
         rotate: 0;
         scale: 1;
         color: #fde047;
       }
-      25% {
+      25%, 85%, 90% {
         translate: 0 -24px;
         rotate: 10deg;
         scale: 2;

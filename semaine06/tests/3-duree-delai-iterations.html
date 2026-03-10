@@ -53,19 +53,19 @@
       .duree-courte .point {
         background: var(--couleur-1);
         /* À compléter : la durée de cette animation est réduite de moitié. */
-
+        animation-duration: 1s;
       }
 
       .avec-delai .point {
         background: var(--couleur-2);
         /* À compléter : un délai de 1 seconde avant le départ de cette animation. */
-
+        animation-delay: 1s;
       }
 
       .iterations-limitees .point {
         background: var(--couleur-3);
         /* À compléter : cette animation est répétées 5 fois. */
-
+        animation-iteration-count: 5;
       }
     }
 
@@ -76,7 +76,7 @@
 
       to {
         /* À compléter : corriger la valeur pour que le point soit animé jusqu'au bout de la ligne */
-        translate: 100%;
+        translate: calc(90vw - 3rem - 22px);
       }
     }
   </style>

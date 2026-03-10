@@ -12,6 +12,7 @@
       --texte: #e2e8f0;
       --piste: #1e293b;
       --point: #38bdf8;
+      --largeur-point: 18px;
     }
 
     body {
@@ -44,10 +45,11 @@
           border-radius: 999px;
           background: var(--piste);
           position: relative;
+          container-type: inline-size;
         }
 
         .point {
-          width: 18px;
+          width: var(--largeur-point);
           aspect-ratio: 1;
           border-radius: 50%;
           background: var(--point);
@@ -61,47 +63,50 @@
 
       .linear .point {
         /* À compléter : accélération */
-
+        animation-timing-function: linear;
       }
 
       .ease .point {
         /* À compléter : accélération */
-
+        animation-timing-function: ease;
       }
 
       .ease-in .point {
         /* À compléter : accélération */
-
+        animation-timing-function: ease-in;
       }
 
       .ease-out .point {
         /* À compléter : accélération */
-
+        animation-timing-function: ease-out;
       }
 
       .ease-in-out .point {
         /* À compléter : accélération */
-
+        animation-timing-function: cubic-bezier(.66,-0.62,.61,1.56);
       }
 
       .step-start .point {
         /* À compléter : animation par étape discrète */
+        animation-timing-function: steps(3, start);
         
       }
 
       /* À compléter : animation par étape discrète. */
-      
+      .step-end .point {
+        animation-timing-function: steps(3, end);
+      }
 
     }
 
     /* À compléter : modifier l'animation pour utiliser la propriété translate et des unités relatives. */
     @keyframes avancer {
       from {
-        transform: translateX(0);
+        translate: 0px;
       }
 
       to {
-        transform: translateX(820px);
+        translate: calc(100cqw - var(--largeur-point));
       }
     }
   </style>

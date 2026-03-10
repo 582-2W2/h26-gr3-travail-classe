@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 - Animation du UI : messages "toast"</title>
+    <style>
+        :root {
+            --fond: rgb(187, 187, 187);
+            --texte: rgb(48, 48, 48);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 2rem;
+
+            .contenu {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 1.5rem;
+
+                .actions {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+
+                    .btn {
+                        border: none;
+                        border-radius: 10px;
+                        padding: 0.7rem 1rem;
+                        font-weight: 700;
+                        color: white;
+                        cursor: pointer;
+                        transition: translate 300ms;
+
+                        &:hover {
+                            translate: 0 -2px;
+                        }
+                    }
+                }
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="contenu">
+        <h1>Animation UI : messages <i>toast</i></h1>
+        <div class="actions">
+            <button class="btn btn-succes">Toast Succès</button>
+            <button class="btn btn-erreur">Toast Erreur</button>
+            <button class="btn btn-info">Toast Info</button>
+            <button class="btn btn-avertissement">Toast Avertissement</button>
+        </div>
+    </div>
+
+    <section class="zone-toast">
+        <div class="toast">
+            <p>Message à définir...</p>
+        </div>
+    </section>
+</body>
+</html>
