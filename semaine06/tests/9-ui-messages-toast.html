@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10 - Animation du UI : messages "toast"</title>
+    <title>9 - Animation du UI : messages "toast"</title>
     <style>
         :root {
             --fond: rgb(187, 187, 187);
             --texte: rgb(48, 48, 48);
+
+            /* Couleurs des boutons et des messages toast */
+            --succes: rgb(0, 90, 0);
+            --erreur: rgb(152, 0, 0);
+            --avertissement: rgb(216, 216, 0);
+            --info: rgb(51, 51, 87);
+            --accent: grey;
         }
 
         * {
@@ -29,7 +36,7 @@
                     flex-wrap: wrap;
                     gap: 1rem;
 
-                    .btn {
+                    button {
                         border: none;
                         border-radius: 10px;
                         padding: 0.7rem 1rem;
@@ -41,28 +48,116 @@
                         &:hover {
                             translate: 0 -2px;
                         }
+
+                        &.succes {
+                            background: var(--succes);
+                        }
+                        &.erreur {
+                            background: var(--erreur);
+                        }
+                        &.avertissement {
+                            background: var(--avertissement);
+                        }
+                        &.info {
+                            background: var(--info);
+                        }
                     }
                 }
             }
 
+            .zone-toast {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                width: min(90vw, 300px);
+
+                div {
+                    --toast-accent: var(--accent);
+
+                    &.succes {
+                        --toast-accent: var(--succes)
+                    }
+                    &.erreur {
+                        --toast-accent: var(--erreur)
+                    }
+                    &.avertissement {
+                        --toast-accent: var(--avertissement)
+                    }
+                    &.info {
+                        --toast-accent: var(--info)
+                    }
+                
+                    border: 1px solid var(--fond);
+                    border-left: 10px solid var(--toast-accent);
+                    border-radius: 12px;
+                    padding: 0.25rem 0.75rem;
+
+                    background-color: white;
+
+                    opacity: 0;
+
+                    animation-duration: 5s;
+                }
+            }
         }
+
+        /* Animation du message "toast" */
+        @keyframes toast {
+            from, to {
+                opacity: 0;
+                translate: 100%;
+                scale: 0.8;
+            }
+
+            5%, 95% {
+                opacity: 1;
+                translate: 0;
+                scale: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="contenu">
         <h1>Animation UI : messages <i>toast</i></h1>
         <div class="actions">
-            <button class="btn btn-succes">Toast Succès</button>
-            <button class="btn btn-erreur">Toast Erreur</button>
-            <button class="btn btn-info">Toast Info</button>
-            <button class="btn btn-avertissement">Toast Avertissement</button>
+            <button class="succes">Toast Succès</button>
+            <button class="erreur">Toast Erreur</button>
+            <button class="info">Toast Info</button>
+            <button class="avertissement">Toast Avertissement</button>
         </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eligendi totam reiciendis id velit incidunt pariatur explicabo, sint eos quidem accusamus earum hic perspiciatis aperiam esse expedita et cupiditate impedit reprehenderit nisi optio! Aliquid, eaque?</p>
+        <p>Facere libero repellat voluptatem recusandae modi, officia odio alias omnis sit eveniet earum sunt nulla mollitia id vel. Tempore laborum adipisci iure, perspiciatis beatae ratione illo totam saepe alias molestias eius veritatis dicta quis quae?</p>
+        <p>Itaque similique voluptate expedita! Sed quis architecto, quasi iure iste eius! Fugiat tempora ipsum accusantium dolores neque obcaecati commodi sequi tempore enim incidunt, at voluptas assumenda rem! Et, ducimus nihil aliquam nemo aperiam ullam quam.</p>
+        <p>Culpa repudiandae suscipit dolorem debitis esse magnam architecto nulla animi nobis molestiae inventore, cumque quos, unde explicabo aspernatur? Esse, dolorum adipisci. Aut omnis quaerat dicta deserunt excepturi inventore, possimus, cumque beatae nihil maxime debitis modi?</p>
+        <p>Ratione ab saepe at neque magnam quisquam sed, commodi minima nemo laborum distinctio porro iure laboriosam odio delectus quis voluptates quos ducimus eveniet facilis qui deserunt illo. Rerum vitae porro, corrupti eos praesentium cupiditate exercitationem.</p>
     </div>
 
     <section class="zone-toast">
-        <div class="toast">
+        <div>
             <p>Message à définir...</p>
         </div>
     </section>
+
+    <script>
+        const toast = document.querySelector(".zone-toast > div");
+        const btns = document.querySelectorAll(".actions > button");
+
+        for (const btn of btns) {
+            btn.addEventListener("click", gererToast);
+        }
+
+        function gererToast(evt) {
+            // Colorier le toast avec la couleur du bouton
+            toast.className = evt.target.className;
+            // console.log("Quel Bouton : ", evt.target);
+            
+            toast.style.animationName = "";
+            void toast.offsetWidth;         
+            toast.style.animationName = "toast";            
+        }
+    </script>
 </body>
 </html>
