@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 - Panneau</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            font-family: Arial, sans-serif;
+            background: #f4f1ea;
+            color: #1f2937;
+        }
+
+        .demo {
+            width: min(100%, 34rem);
+            background: #ffffff;
+            border: 1px solid #d6d3d1;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+        }
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.85rem 1.2rem;
+            background: #1d4ed8;
+            color: white;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .panneau {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            opacity: 0;
+            translate: 0 -0.75rem;
+            pointer-events: none;
+            transition: opacity 220ms ease, translate 220ms ease;
+        }
+
+        .panneau.ouvert {
+            opacity: 1;
+            translate: 0 0;
+            pointer-events: auto;
+        }
+
+        code {
+            background: #eff6ff;
+            padding: 0.1rem 0.35rem;
+            border-radius: 0.35rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="demo">
+        <h1>Exemple 1 - Ouvrir un panneau</h1>
+        <p>Objectif : utiliser <code>classList.toggle()</code> pour controler une transition CSS.</p>
+
+        <button class="btn-panneau" type="button">Afficher ou masquer les details</button>
+
+        <div class="panneau">
+            <h2>Details du film</h2>
+            <p>Le panneau apparait en douceur quand la classe <code>ouvert</code> est ajoutee.</p>
+        </div>
+    </section>
+
+    <script>
+        const bouton = document.querySelector('.btn-panneau');
+        const panneau = document.querySelector('.panneau');
+
+        bouton.addEventListener('click', () => {
+            // A FAIRE : démarrer ou arrêter l'animation...
+            
+        });
+    </script>
+</body>
+</html>

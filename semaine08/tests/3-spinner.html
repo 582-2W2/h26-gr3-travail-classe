@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 - Spinner</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            font-family: Arial, sans-serif;
+            background: #ecfeff;
+            color: #083344;
+        }
+
+        .demo {
+            width: min(100%, 32rem);
+            background: white;
+            border: 1px solid #a5f3fc;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+        }
+
+        .spinner {
+            width: 5rem;
+            height: 5rem;
+            margin: 1.5rem auto;
+            border: 0.7rem solid #cbd5e1;
+            border-top-color: #0891b2;
+            border-radius: 50%;
+            animation: rotation 900ms linear infinite;
+        }
+
+        .spinner.pause {
+            animation-play-state: paused;
+        }
+
+        @keyframes rotation {
+            from {
+                rotate: 0deg;
+            }
+            to {
+                rotate: 360deg;
+            }
+        }
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.8rem 1.1rem;
+            background: #0f766e;
+            color: white;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .etat {
+            min-height: 1.5rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <section class="demo">
+        <h1>Exemple 3 - Pause d'une animation</h1>
+        <p>Objectif : utiliser une classe d'etat pour mettre une animation en pause.</p>
+
+        <div class="spinner"></div>
+        <p class="etat">Etat actuel : en lecture</p>
+        <button class="btn-pause" type="button">Mettre en pause / reprendre</button>
+    </section>
+
+    <script>
+        const spinner = document.querySelector('.spinner');
+        const boutonPause = document.querySelector('.btn-pause');
+        const etat = document.querySelector('.etat');
+
+        boutonPause.addEventListener('click', () => {
+            // A FAIRE:
+            // 1. Basculer l'état "play-state" du spinner
+            // 2. Mettre a jour le texte selon l'état
+            //    "Etat actuel : en pause" ou "Etat actuel : en lecture"
+        });
+    </script>
+</body>
+</html>

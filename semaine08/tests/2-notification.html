@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 - Notification</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem;
+            font-family: Arial, sans-serif;
+            background: #fff7ed;
+            color: #431407;
+        }
+
+        .demo {
+            width: min(100%, 36rem);
+            background: white;
+            border: 1px solid #fed7aa;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
+        }
+
+        .actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.8rem 1.1rem;
+            background: #ea580c;
+            color: white;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .notification {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            background: #ffedd5;
+            border: 1px solid #fdba74;
+        }
+
+        .notification.anime {
+            /* À FAIRE : Définir les propriétés de l'animation */
+
+        }
+
+        @keyframes secousse {
+            0%, 100% {
+                translate: 0 0;
+            }
+            25% {
+                translate: -0.45rem 0;
+            }
+            75% {
+                translate: 0.45rem 0;
+            }
+        }
+
+        code {
+            background: #ffedd5;
+            padding: 0.1rem 0.35rem;
+            border-radius: 0.35rem;
+        }
+    </style>
+</head>
+<body>
+    <section class="demo">
+        <h1>Exemple 2 - Relancer une animation</h1>
+        <p>Objectif : ajouter, retirer puis re-ajouter une classe pour relancer une animation CSS.</p>
+
+        <div class="actions">
+            <button class="btn-animer" type="button">Jouer l'animation</button>
+            <button class="btn-relancer" type="button">Relancer l'animation</button>
+        </div>
+
+        <div class="notification">
+            Verification incomplete : il manque un champ obligatoire.
+        </div>
+    </section>
+
+    <script>
+        const notification = document.querySelector('.notification');
+        const boutonAnimer = document.querySelector('.btn-animer');
+        const boutonRelancer = document.querySelector('.btn-relancer');
+
+        boutonAnimer.addEventListener('click', () => {
+            // À FAIRE : démarrer l'animation
+
+        });
+
+        boutonRelancer.addEventListener('click', () => {
+            // A FAIRE:
+            // 1. Arrêter l'animation
+            // 2. Forcer un recalcul avec void elt.offsetWidth
+            // 3. Démarrer l'animation
+            
+        });
+    </script>
+</body>
+</html>

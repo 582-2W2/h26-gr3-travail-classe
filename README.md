@@ -4,7 +4,21 @@
 
 ## Calendrier des activités
 
+### ÉTAPE #3 : Programmer l’interactivité de l’interface utilisateur des pages Web à l’aide du langage de programmation.
+
+**Semaine 8**
+- Gestion des classes CSS d’un élément HTML par programmation
+- API `ClassList`
+- Le contrôle des transitions et des animations avec JavaScript
+  > Retour sur le TP/Volet #1 après correction et remise des notes
+
 ### ÉTAPE #2 : Programmer et intégrer des animations de l’interface utilisateur
+
+**Semaine 7**
+- Animations CSS (suite)
+- Les propriétés permettant le contrôle des animations
+- Animations au défilement et à la navigation (remis à plus tard dans la session)
+  > Production TP/Volet #1
 
 **Semaine 6**
 - Animations CSS (début)
