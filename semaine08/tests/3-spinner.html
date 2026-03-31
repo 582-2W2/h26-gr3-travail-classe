@@ -34,15 +34,18 @@
             width: 5rem;
             height: 5rem;
             margin: 1.5rem auto;
-            border: 0.7rem solid #cbd5e1;
+            border: 0.7rem solid orange;
             border-top-color: #0891b2;
+            /* border-bottom-color: #0891b2; */
             border-radius: 50%;
             animation: rotation 900ms linear infinite;
+        
+            &.pause {
+                animation-play-state: paused;
+            }
         }
 
-        .spinner.pause {
-            animation-play-state: paused;
-        }
+        
 
         @keyframes rotation {
             from {
@@ -76,7 +79,12 @@
 
         <div class="spinner"></div>
         <p class="etat">Etat actuel : en lecture</p>
-        <button class="btn-pause" type="button">Mettre en pause / reprendre</button>
+        <button 
+            class="btn-pause" 
+            type="button"
+        >
+            Mettre en pause / reprendre
+        </button>
     </section>
 
     <script>
@@ -87,8 +95,18 @@
         boutonPause.addEventListener('click', () => {
             // A FAIRE:
             // 1. Basculer l'état "play-state" du spinner
+            spinner.classList.toggle("pause");
             // 2. Mettre a jour le texte selon l'état
             //    "Etat actuel : en pause" ou "Etat actuel : en lecture"
+            // if(spinner.classList.contains("pause")) {
+            //     etat.innerHTML = "État actuel : en pause";
+            // }
+            // else {
+            //     etat.innerHTML = "État actuel : en lecture";
+            // }
+            etat.innerHTML = spinner.classList.contains("pause") 
+                                ? "État actuel : en pause" 
+                                : "État actuel : en lecture"  
         });
     </script>
 </body>

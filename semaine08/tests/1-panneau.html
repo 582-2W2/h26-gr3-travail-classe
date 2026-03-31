@@ -51,7 +51,7 @@
             transition: opacity 220ms ease, translate 220ms ease;
         }
 
-        .panneau.ouvert {
+        .ouvert {
             opacity: 1;
             translate: 0 0;
             pointer-events: auto;
@@ -71,7 +71,7 @@
 
         <button class="btn-panneau" type="button">Afficher ou masquer les details</button>
 
-        <div class="panneau">
+        <div class="panneau alibaba quarante voleurs">
             <h2>Details du film</h2>
             <p>Le panneau apparait en douceur quand la classe <code>ouvert</code> est ajoutee.</p>
         </div>
@@ -81,10 +81,17 @@
         const bouton = document.querySelector('.btn-panneau');
         const panneau = document.querySelector('.panneau');
 
-        bouton.addEventListener('click', () => {
-            // A FAIRE : démarrer ou arrêter l'animation...
-            
-        });
+        // bouton.addEventListener("click", basculerPaneau);
+
+        // function basculerPaneau() {
+        //     panneau.classList.toggle("ouvert");
+        // }
+
+        // bouton.addEventListener('click', function () {
+        //     panneau.classList.toggle("ouvert");
+        // });
+
+        bouton.addEventListener('click', () => panneau.classList.toggle("ouvert"));
     </script>
 </body>
 </html>

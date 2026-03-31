@@ -55,7 +55,10 @@
 
         .notification.anime {
             /* À FAIRE : Définir les propriétés de l'animation */
-
+            animation-name: secousse;
+            animation-duration: 200ms;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 3;
         }
 
         @keyframes secousse {
@@ -98,16 +101,17 @@
         const boutonRelancer = document.querySelector('.btn-relancer');
 
         boutonAnimer.addEventListener('click', () => {
-            // À FAIRE : démarrer l'animation
-
+            notification.classList.add("anime");
         });
 
         boutonRelancer.addEventListener('click', () => {
             // A FAIRE:
             // 1. Arrêter l'animation
+            notification.classList.remove("anime");
             // 2. Forcer un recalcul avec void elt.offsetWidth
+            void notification.offsetWidth;
             // 3. Démarrer l'animation
-            
+            notification.classList.add("anime");
         });
     </script>
 </body>
