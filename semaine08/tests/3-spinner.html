@@ -38,7 +38,7 @@
             border-top-color: #0891b2;
             /* border-bottom-color: #0891b2; */
             border-radius: 50%;
-            animation: rotation 900ms linear infinite;
+            animation: rotation 900ms 2s linear 5 ;
         
             &.pause {
                 animation-play-state: paused;
@@ -108,6 +108,16 @@
                                 ? "État actuel : en pause" 
                                 : "État actuel : en lecture"  
         });
+
+
+        spinner.addEventListener("animationstart", gererEvtAnim);
+        spinner.addEventListener("animationiteration", gererEvtAnim);
+        spinner.addEventListener("animationend", gererEvtAnim);
+
+        function gererEvtAnim(evt) {
+            console.log("Événement qui vient de se déclencher : ", evt.type);
+            
+        }
     </script>
 </body>
 </html>

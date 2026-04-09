@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 - Bouton bascule avec les pseudo-éléments</title>
+
+    <style>
+        *, 
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        } 
+
+        html {
+            height: 100vh;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .conteneur {
+            width: 50vw;
+            height: 50vh;
+            background: linear-gradient(to bottom, yellow, orange);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn-bascule {
+            display: none;
+        }
+
+        /* Capsule */
+        label {
+            background-color: white;
+            width: 4rem;
+            height: 2rem;
+            border-radius: 2rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* Disque */
+        label::before {
+            position: absolute;
+            content: "";
+            width: 1.7rem;
+            aspect-ratio: 1;
+            background-color: brown;
+            border-radius: 50%;
+            top: 0.15rem;
+            left: 0.15rem;
+            transition: translate 200ms;
+        }
+
+        #btn-bascule:checked + label::before {
+            background-color: green;
+            translate: 1.95rem
+        }
+    </style>
+
+</head>
+<body>
+    <div class="conteneur">
+        <input type="checkbox" id="btn-bascule">
+        <label for="btn-bascule"></label>
+    </div>
+</body>
+</html>
