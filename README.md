@@ -6,6 +6,12 @@
 
 ### ÉTAPE #3 : Programmer l’interactivité de l’interface utilisateur des pages Web à l’aide du langage de programmation.
 
+**Semaine 9**
+- Les pseudo-éléments CSS (rappel général rapide, puis focus sur `::after`/`::before`)
+- Animation de pseudo-éléments avec CSS
+- Stratégies d’animation d’éléments HTML avec l’usage de pseudo-éléments et
+des méthodes de l’API ClassList
+
 **Semaine 8**
 - Gestion des classes CSS d’un élément HTML par programmation
 - API `ClassList`
