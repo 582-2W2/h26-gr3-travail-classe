@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 - firstElementChild et children</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: "Gill Sans", "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 20% 10%, #dbeafe, #bfdbfe 45%, #a5f3fc);
+            color: #0f172a;
+            padding: 1.25rem;
+        }
+
+        .demo {
+            width: min(100%, 41rem);
+            background: rgba(255, 255, 255, 0.93);
+            border: 2px solid #38bdf8;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            box-shadow: 0 1rem 2rem rgba(15, 23, 42, 0.16);
+        }
+
+        .actions {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.65rem 1rem;
+            font: inherit;
+            color: white;
+            background: linear-gradient(90deg, #0284c7, #0ea5e9);
+            cursor: pointer;
+        }
+
+        .participants {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .participant {
+            border: 1px solid #7dd3fc;
+            border-radius: 0.7rem;
+            padding: 0.58rem 0.75rem;
+            background: #f0f9ff;
+            transition: transform 180ms ease, background-color 180ms ease;
+        }
+
+        .participant.actif {
+            background: #dbeafe;
+            transform: translateX(6px);
+            box-shadow: inset 0 0 0 2px #2563eb;
+        }
+
+        .participant.flash {
+            animation: flash 260ms ease;
+        }
+
+        .etat {
+            margin-top: 0.8rem;
+            font-weight: 700;
+        }
+
+        @keyframes flash {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="demo">
+        <h1>Exemple 3 - firstElementChild et children</h1>
+        <p>Objectif : compléter la gestion de la file de joueurs.</p>
+
+        <div class="actions">
+            <button class="btn-ajouter" type="button">Ajouter un joueur</button>
+            <button class="btn-premier" type="button">Mettre en vedette le premier</button>
+            <button class="btn-animer" type="button">Animer toute la file</button>
+            <button class="btn-servir" type="button">Servir le premier (remove)</button>
+        </div>
+
+        <ul class="participants">
+            <li class="participant">Zoé</li>
+            <li class="participant">Malik</li>
+            <li class="participant">Inès</li>
+        </ul>
+
+        <p class="etat">État : file prête.</p>
+    </section>
+
+    <script>
+        const liste = document.querySelector('.participants');
+        const boutonAjouter = document.querySelector('.btn-ajouter');
+        const boutonPremier = document.querySelector('.btn-premier');
+        const boutonAnimer = document.querySelector('.btn-animer');
+        const boutonServir = document.querySelector('.btn-servir');
+        const etat = document.querySelector('.etat');
+
+        const noms = ['Rico', 'Mia', 'Noa', 'Sam', 'Ari', 'Léa'];
+        let indexNom = 0;
+
+        function nettoyerActifs() {
+            // A FAIRE : parcourir les enfants de la liste et enlever la classe "actif"
+
+        }
+
+        boutonAjouter.addEventListener('click', () => {
+            // A FAIRE :
+            // 1) créer un <li> .participant .flash avec createElement
+            // 2) injecter le nom suivant du tableau noms
+            // 3) ajouter avec append
+            // 4) mettre à jour le texte d'état avec children.length
+
+        });
+
+        boutonPremier.addEventListener('click', () => {
+            // A FAIRE :
+            // 1) nettoyer les classes actives
+            // 2) récupérer le premier enfant avec firstElementChild
+            // 3) s'il existe, lui ajouter "actif" et mettre à jour l'état
+            // 4) sinon afficher que la file est vide
+            
+        });
+
+        boutonAnimer.addEventListener('click', () => {
+            // A FAIRE :
+            // relancer la classe flash sur tous les enfants de la liste (for...of sur children)
+            // Astuce : retirer la classe, forcer le recalcul, puis remettre la classe
+        });
+
+        boutonServir.addEventListener('click', () => {
+            // A FAIRE :
+            // 1) prendre firstElementChild
+            // 2) retirer avec remove() si présent
+            // 3) afficher un message adapté dans .etat
+        });
+    </script>
+</body>
+</html>

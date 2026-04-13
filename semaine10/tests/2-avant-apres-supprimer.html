@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 - before(), after() et remove()</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: "Verdana", "Segoe UI", sans-serif;
+            background: linear-gradient(160deg, #d9f99d, #bbf7d0 40%, #a7f3d0);
+            color: #134e4a;
+            padding: 1.25rem;
+        }
+
+        .demo {
+            width: min(100%, 40rem);
+            background: rgba(255, 255, 255, 0.92);
+            border: 2px solid #34d399;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            box-shadow: 0 0.9rem 1.8rem rgba(20, 83, 45, 0.15);
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0.85rem;
+        }
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.65rem 0.95rem;
+            font: inherit;
+            color: white;
+            background: linear-gradient(90deg, #059669, #10b981);
+            cursor: pointer;
+        }
+
+        .carte {
+            border: 1px solid #6ee7b7;
+            border-radius: 0.8rem;
+            background: #ecfdf5;
+            padding: 1rem;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .autocollant {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 0.25rem 0.55rem;
+            font-size: 0.85rem;
+            background: #bbf7d0;
+            border: 1px solid #34d399;
+            animation: pop 220ms ease-out;
+        }
+
+        .journal {
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            min-height: 1.4rem;
+            font-weight: 700;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="demo">
+        <h1>Exemple 2 - before(), after() et remove()</h1>
+        <p>Objectif : Ajouter des badges autour du titre et les supprimer.</p>
+
+        <div class="actions">
+            <button class="btn-avant" type="button">Ajouter avant</button>
+            <button class="btn-apres" type="button">Ajouter après</button>
+            <button class="btn-retirer" type="button">Retirer le premier "badge"</button>
+        </div>
+
+        <article class="carte">
+            <h2 class="vedette">Mission : décorer la capsule</h2>
+            <p>Ajoutez des badges autour du titre pour célébrer la mission.</p>
+        </article>
+
+        <p class="journal">Journal des actions complétées : ...</p>
+    </section>
+
+    <script>
+        const titre = document.querySelector('.vedette');
+        const boutonAvant = document.querySelector('.btn-avant');
+        const boutonApres = document.querySelector('.btn-apres');
+        const boutonRetirer = document.querySelector('.btn-retirer');
+        const journal = document.querySelector('.journal');
+
+        function creerAutocollant(texte) {
+            // A FAIRE : 
+            // créer un <span> avec la classe "autocollant" et le texte reçu en argument 
+            // puis le retourner
+            
+        }
+
+        boutonAvant.addEventListener('click', () => {
+            // A FAIRE :
+            // 1) créer l'autocollant "⚡ Promouvoir"
+            // 2) l'insérer AVANT le titre
+            // 3) mettre à jour le journal
+        });
+
+        boutonApres.addEventListener('click', () => {
+            // A FAIRE :
+            // 1) créer l'autocollant "🎯 Cible atteinte"
+            // 2) l'insérer APRES le titre
+            // 3) mettre à jour le journal
+        });
+
+        boutonRetirer.addEventListener('click', () => {
+            // A FAIRE :
+            // 1) récupérer tous les éléments .autocollant
+            // 2) retirer le premier si présent
+            // 3) gérer le cas où il n'y en a pas
+        });
+    </script>
+</body>
+</html>
