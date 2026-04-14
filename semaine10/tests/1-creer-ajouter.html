@@ -113,7 +113,9 @@
             <button class="btn-reset" type="button">Réinitialiser</button>
         </div>
 
-        <ul class="monstres"></ul>
+        <ul class="monstres">
+
+        </ul>
         <p class="info">Monstres créés : <span class="compteur">0</span></p>
     </section>
 
@@ -124,38 +126,35 @@
         const compteur = document.querySelector('.compteur');
 
         const creatures = ['Blob Disco', 'Dragon Marshmallow', 'Lama Ninja', 'Robot Banane', 'Pieuvre Turbo'];
-        let indexCreature = 0;
+        
+        boutonAjouter.addEventListener("click", ()=>{
+            // Retirer la classe "nouveau" de tous les monstres
+            // C'est à dire de tous les LI qui sont enfant de UL
+            for (const unLi of listeMonstres.children) {
+                unLi.classList.remove("nouveau");
+            }
 
-        function mettreAJourCompteur() {
-            // A FAIRE : afficher le nombre d'enfants de la liste dans .compteur
+            // NE MARCHE PAS car children n'est pas ARRAY
+            // listeMonstres.children.forEach(
+            //     (unLi) => unLi.classList.remove("nouveau")
+            // );
+
+
+            const posAlea = Math.floor(Math.random()*creatures.length);
+            const eltMonstre = document.createElement("li");
+            eltMonstre.classList.add("monstre", "nouveau");
+            eltMonstre.textContent = creatures[posAlea];
+            console.log("Mon monstre : ", eltMonstre);
             
-        }
+            listeMonstres.append(eltMonstre);
 
-        function creerCarteMonstre(nom) {
-            // A FAIRE :
-            // 1) Créer un <li> avec la classe "monstre nouveau"
-            // 2) Créer un <span> pour le nom
-            // 3) Créer un <span class="badge">Nouveau</span>
-            // 4) Assembler avec append et retourner le <li>
-
-        }
-
-        boutonAjouter.addEventListener('click', () => {
-            const nom = creatures[indexCreature % creatures.length];
-            indexCreature += 1;
-
-            // A FAIRE :
-            // 1) Créer la carte avec creerCarteMonstre
-            // 2) L'ajouter dans la liste avec append
-            // 3) Mettre à jour le compteur
-            // 4) Après 600ms, retirer la classe "nouveau"
+            console.log("Les enfants de la liste des monstres : ", 
+                listeMonstres.children);
+            
 
         });
 
-        boutonReset.addEventListener('click', () => {
-            // A FAIRE : vider la liste et réinitialiser le compteur
-            
-        });
+        boutonReset.addEventListener("click", ()=>listeMonstres.innerHTML="")
     </script>
 </body>
 </html>
