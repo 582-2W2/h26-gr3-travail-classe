@@ -107,8 +107,6 @@
             <li class="participant">Malik</li>
             <li class="participant">Inès</li>
         </ul>
-
-        <p class="etat">État : file prête.</p>
     </section>
 
     <script>
@@ -117,23 +115,31 @@
         const boutonPremier = document.querySelector('.btn-premier');
         const boutonAnimer = document.querySelector('.btn-animer');
         const boutonServir = document.querySelector('.btn-servir');
-        const etat = document.querySelector('.etat');
 
         const noms = ['Rico', 'Mia', 'Noa', 'Sam', 'Ari', 'Léa'];
         let indexNom = 0;
 
         function nettoyerActifs() {
             // A FAIRE : parcourir les enfants de la liste et enlever la classe "actif"
-
+            const lesJoueurs = liste.children;
+            for (const joueur of lesJoueurs) {
+                joueur.classList.remove("actif");
+            }
         }
 
         boutonAjouter.addEventListener('click', () => {
             // A FAIRE :
             // 1) créer un <li> .participant .flash avec createElement
             // 2) injecter le nom suivant du tableau noms
-            // 3) ajouter avec append
-            // 4) mettre à jour le texte d'état avec children.length
-
+            // 3) ajouter avec prepend
+            const eltLi = document.createElement("li");
+            eltLi.classList.add("participant", "flash");
+            eltLi.textContent = noms[indexNom];
+            indexNom++;
+            if(indexNom >= noms.length) {
+                indexNom = 0;
+            }
+            liste.prepend(eltLi);
         });
 
         boutonPremier.addEventListener('click', () => {
@@ -142,6 +148,15 @@
             // 2) récupérer le premier enfant avec firstElementChild
             // 3) s'il existe, lui ajouter "actif" et mettre à jour l'état
             // 4) sinon afficher que la file est vide
+            const premier = liste.firstElementChild;
+            console.log("Le premier joueur : ", premier);
+            // Parcourir TOUS les enfants et leur retirer la classe "actif"
+            nettoyerActifs();
+
+            // ... et finalement ajouter la classe "actif" au premier enfant de la liste
+            if(premier) {
+                premier.classList.add("actif");
+            }
             
         });
 
