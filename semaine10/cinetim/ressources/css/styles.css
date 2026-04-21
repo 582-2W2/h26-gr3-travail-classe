@@ -168,7 +168,7 @@ section.vedette {
     gap: 1.5rem;
     padding: 2rem 1rem;
 
-    &.d2 {
+    &.grille-films {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 1.5rem;

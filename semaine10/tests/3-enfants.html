@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+<!-- Mon commentaire -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -149,6 +150,7 @@
             // 3) s'il existe, lui ajouter "actif" et mettre à jour l'état
             // 4) sinon afficher que la file est vide
             const premier = liste.firstElementChild;
+            // const premier = document.querySelector(".participants li:first-child");
             console.log("Le premier joueur : ", premier);
             // Parcourir TOUS les enfants et leur retirer la classe "actif"
             nettoyerActifs();
@@ -170,7 +172,11 @@
             // A FAIRE :
             // 1) prendre firstElementChild
             // 2) retirer avec remove() si présent
-            // 3) afficher un message adapté dans .etat
+            
+            const premier = liste.firstElementChild;
+            if(premier) {
+                premier.remove();
+            }
         });
     </script>
 </body>
