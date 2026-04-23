@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1 - Exemple de gabarit HTML</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Verdana", "Segoe UI", sans-serif;
+      background: linear-gradient(160deg, #eff6ff, #dbeafe 50%, #bfdbfe);
+      color: #1e3a8a;
+      padding: 1.25rem;
+    }
+
+    .demo {
+      width: min(100%, 58rem);
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.94);
+      border: 2px solid #60a5fa;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: 0 1rem 2rem rgba(30, 58, 138, 0.12);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .consigne {
+      padding: 0.8rem 1rem;
+      border-radius: 0.8rem;
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+    }
+
+    .liste-activites {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      gap: 0.9rem;
+    }
+
+    .carte {
+      background: #f8fbff;
+      border: 1px solid #93c5fd;
+      border-radius: 0.9rem;
+      padding: 1rem;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .carte__titre,
+    .carte__niveau,
+    .carte__sommaire {
+      margin: 0;
+    }
+
+    .carte__niveau {
+      font-weight: 700;
+      color: #1d4ed8;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="demo">
+    <h1>Exemple - Gabarit HTML</h1>
+    <p class="consigne">But : compléter le JavaScript pour générer des cartes d'activités à partir d'un gabarit HTML, en
+      gardant le HTML pour la structure et le JavaScript pour la logique.</p>
+    
+      <section class="liste-activites">
+
+    </section>
+  </section>
+
+  <template id="gabarit-activite">
+    <article class="carte">
+      <h2 class="carte__titre"></h2>
+      <p class="carte__niveau"></p>
+      <p class="carte__sommaire"></p>
+    </article>
+  </template>
+
+  <script>
+    const activites = [
+      {
+        titre: 'Atelier pixel art',
+        niveau: 'Débutant',
+        sommaire: 'Créer une petite illustration en suivant une grille simple.'
+      },
+      {
+        titre: 'Défi interface mobile',
+        niveau: 'Intermédiaire',
+        sommaire: 'Assembler une vue mobile claire avec une hiérarchie visuelle propre.'
+      },
+      {
+        titre: 'Mini laboratoire DOM',
+        niveau: 'Exploration',
+        sommaire: 'Observer comment un gabarit HTML peut être cloné et injecté.'
+      }
+    ];
+
+    // TODO : compléter le JavaScript pour afficher les activités à partir du gabarit HTML
+
+  </script>
+</body>
+
+</html>
