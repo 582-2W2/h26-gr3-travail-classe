@@ -73,8 +73,8 @@
     <h1>Exemple - Gabarit HTML</h1>
     <p class="consigne">But : compléter le JavaScript pour générer des cartes d'activités à partir d'un gabarit HTML, en
       gardant le HTML pour la structure et le JavaScript pour la logique.</p>
-    
-      <section class="liste-activites">
+
+    <section class="liste-activites">
 
     </section>
   </section>
