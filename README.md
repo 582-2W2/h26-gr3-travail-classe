@@ -6,6 +6,11 @@
 
 ### ÉTAPE #3 : Programmer l’interactivité de l’interface utilisateur des pages Web à l’aide du langage de programmation.
 
+**Semaine 11**
+- Création du contenu dynamique à partir de gabarit HTML (élément `TEMPLATE`)
+- Méthodes `cloneNode`  et `importNode` de l'interface `Node` du DOM
+  > Production TP/Volet #2
+
 **Semaine 10**
 - Notions fondamentales de l'API DOM (Modèle Objet de Document) d'un document HTML
 - Interface `Document` et `Element` : création/modification/destruction d’éléments du DOM
