@@ -11,14 +11,8 @@ if (disque && superposition && chiffre) {
         () => chiffre.textContent = decompte > 1 ? --decompte : null);
 
     superposition.addEventListener("animationend", (evt) => {
-        console.log("animationend est détecté");
-        console.log("Objet évenement : ", evt);
-        if (evt.animationName == "tourner-disque") {
-            disque.classList.add("cache")
-        }
-        if (evt.animationName == "battement") {
-            superposition.classList.add("cache")
-        }
+        disque.classList.add("cache");
+        superposition.classList.add("cache");
     });
 }
 
@@ -28,61 +22,47 @@ if (disque && superposition && chiffre) {
 // Attraper la section qui contiendra les films
 const sectionListeFilms = document.querySelector("#page-films section.grille");
 
-// /////////////////////////////////////////////////////////////
-// MÉTHODE 1 : en créant les éléments HTML dynamiquement avec JS
-// /////////////////////////////////////////////////////////////
-
-// Boucler à travers la liste des films pour générer l'affichage des
-// films dynamiquement
-// if (sectionListeFilms) {
-//     for (const film of listeFilms) {
-//         // On créé les éléments nécessaires et on leur assigne propriétés et 
-//         // contenu texte
-//         const article = document.createElement("article");
-//         article.classList.add("tuile");
-//         const figure = document.createElement("figure");
-//         const img = document.createElement("img");
-//         img.src = "ressources/images/films/" + film.vignette;
-//         img.alt = film.alt;
-//         const figcaption = document.createElement("figcaption");
-//         figcaption.textContent = film.titre;
-//         const p = document.createElement("p");
-//         p.classList.add("description");
-//         p.textContent = film.synopsis;
-
-//         // Imbriquer les éléments les uns dans les autres comme dans le code 
-//         // HTML statique fourni
-//         figure.append(img);
-//         figure.append(figcaption);
-//         article.append(figure);
-//         article.append(p);
-
-//         console.log("Article du prochain film : ", article);
-//         // Imbriquer l'article complété dans la section de la liste des films
-//         sectionListeFilms.append(article);
-//     }
-// }
-
-// //////////////////////////////////////////////////////////////
-// MÉTHODE 2 : en clonant un gabarit HTML et injectant le contenu
-// //////////////////////////////////////////////////////////////
-
 // Boucler à travers la liste des films pour injecter une copie du 
 // gabarit "gabarit-film" dans la section "sectionListeFilms"
+if (sectionListeFilms) {
+    const gabaritFilm = document.querySelector("#gabarit-film");
 
-// Saisir le gabarit-film
-const gabaritFilm = document.querySelector("#gabarit-film");
-for (const film of listeFilms) {
-    // Cloner le gabarit
-    const articleFilm = gabaritFilm.cloneNode(true).content;
+    for (const film of listeFilms) {
+        // Cloner le gabarit
+        const articleFilm = gabaritFilm.cloneNode(true).content;
 
-    // Changer les attributs de l'image et les textes du titre et de la 
-    // description
-    articleFilm.querySelector("figcaption").textContent = film.titre;
-    articleFilm.querySelector("p.description").textContent = film.synopsis;
-    articleFilm.querySelector("img").alt = film.alt;
-    articleFilm.querySelector("img").src = "ressources/images/films/" + film.vignette;
+        // Changer les attributs de l'image et les textes du titre et de la 
+        // description
+        articleFilm.querySelector("figcaption").textContent = film.titre;
+        articleFilm.querySelector("p.description").textContent = film.synopsis;
+        articleFilm.querySelector("img").alt = film.alt;
+        articleFilm.querySelector("img").src = "ressources/images/films/" + film.vignette;
 
-    // Injecter cet article dans la section des films
-    sectionListeFilms.append(articleFilm);
+        // Injecter cet article dans la section des films
+        sectionListeFilms.append(articleFilm);
+    }
+
+    // Ajout d'un film
+    const btnAjouter = document.querySelector(".btn-ajouter");
+    const frmAjouterFilm = document.querySelector("#frm-ajouter-film");
+
+    btnAjouter.addEventListener("click", ()=>{
+        console.log("Valeur du champ titre : ", frmAjouterFilm.titre.value);
+        // Ajouter dans le tableau listeFilms un objet JS qui contient
+        // les propriétés attendues
+        const objetFilm = {
+            titre: frmAjouterFilm.titre.value,
+            synopsis: frmAjouterFilm.synopsis.value,
+            vignette: frmAjouterFilm.vignette.value,
+            alt: "Affiche du film " + frmAjouterFilm.titre.value
+        }
+
+        console.log("Objet film correspondant aux valeurs dans le formulaire : ", objetFilm);
+
+        // Ajouter le film proposé dans le tableau des films
+        listeFilms.push(objetFilm); // Ajouter à la fin
+        console.log("Tableau listeFilms : ", listeFilms);
+        
+        
+    });
 }

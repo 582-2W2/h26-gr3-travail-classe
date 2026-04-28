@@ -23,9 +23,49 @@
 
   <main id="page-films">
     <h1>Films proposés</h1>
-    <section class="grille grille-films" aria-label="Liste des films proposés">
-      
-    </section>
+
+    <!-- Bouton et formulaire pour proposer un film -->
+    <button type="button" class="btn-proposer">Proposer un film</button>
+    <form id="frm-ajouter-film" method="post">
+      <h2>Nouveau film</h2>
+      <div class="champ">
+        <label for="film-titre">Titre</label>
+        <input 
+          type="text" 
+          name="titre" 
+          id="film-titre" 
+          placeholder="Titre original"
+        >
+      </div>
+      <div class="champ">
+        <label for="film-synopsis">Synopsis</label>
+        <textarea 
+          name="synopsis" 
+          id="film-synopsis" 
+          placeholder="Court synopsis du film"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="champ">
+        <label for="film-vignette">Vignette</label>
+        <input 
+          type="text" 
+          name="vignette" 
+          id="film-vignette" 
+          placeholder="Nom du fichier image"
+        >
+      </div>
+      <div class="actions">
+        <button type="button" class="btn-ajouter">Ajouter</button>
+        <button type="reset" class="btn-annuler">Annuler</button>
+      </div>
+    </form>
+
+    <!-- Affichage des films proposés -->
+    <section 
+      class="grille grille-films" 
+      aria-label="Liste des films proposés"
+    ></section>
   </main>
 
   <footer>
