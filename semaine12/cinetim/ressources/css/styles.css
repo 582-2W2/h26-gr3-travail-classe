@@ -1,0 +1,377 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: clamp(0.875rem, 0.5rem + 1vw, 1.5rem);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1f2933;
+    background-color: #f7f8fa;
+}
+
+/* Décompte cinéma */
+.superposition-compte-rebours {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: radial-gradient(circle, #7a7a7a 0%, #0f0f0f 80%);
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+
+    .disque-compte-rebours {
+        position: relative;
+        width: 250px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 4px solid #d9d9d9;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(
+                        from 0deg,
+                        #1f1f1f 0 25%,
+                        #2f2f2f 25% 50%,
+                        #1f1f1f 50% 75%,
+                        #2f2f2f 75% 100%
+                    );
+        animation: tourner-disque 1s linear 3;
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        &::before {
+            width: 2px;
+            height: 100%;
+        }
+
+        &::after {
+            height: 2px;
+            width: 100%;
+        }
+
+        .chiffre-compte-rebours {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f3f3f3;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+    }
+}
+
+header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0f172a;
+    color: #fff;
+    padding: 1rem 1.5rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.35rem 0.55rem;
+
+        &[aria-current="page"] {
+            border-bottom: 2px solid #c85c0f;
+        }
+
+        &:focus-visible {
+            background: rgba(255, 255, 255, 0.12);
+            outline: none;
+        }
+    }
+}
+
+.hero {
+    position: relative;
+    padding: 3rem 1.5rem;
+    color: white;
+    background: 
+        linear-gradient(45deg, rgba(4, 38, 77, 0.7) 30%, rgba(14, 14, 150, 0.5) 50%, rgba(14, 14, 150, 0.2) 70%),
+        url(../images/films/frankenstein.png) center right / cover no-repeat;
+    
+    h1 {
+        margin: 0.25rem 0 1rem;
+    }
+
+    p {
+        max-width: 560px;
+    }
+}
+
+.surtitre {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    letter-spacing: 0.08rem;
+}
+
+.appel {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #c85c0f;
+    color: #f7f8fa;
+    border: none;
+    border-radius: 0.5rem;
+    /* font-weight: 700; */
+    cursor: pointer;
+    transition: translate 150ms ease-out, box-shadow 150ms;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        inset: 0;
+        background: linear-gradient(135deg, #c85c0f 0%, #f59e0b 50%, #fbbf24 100%);
+        translate: -100%;
+        transition: translate 0.2s;
+    }
+
+    &:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+        &::after {
+            translate: 0;
+        }
+    }
+
+}
+
+main#page-films {
+    h1 {
+        padding: 0rem 1rem;
+    }
+}
+
+.btn-proposer,
+.btn-ajouter {
+    margin: 1rem 1rem 0;
+    padding: 0.75rem 1.5rem;
+    background-color: #c85c0f;
+    color: #f7f8fa;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: translate 150ms ease-out, box-shadow 150ms;
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        inset: 0;
+        background: linear-gradient(135deg, #c85c0f 0%, #f59e0b 50%, #fbbf24 100%);
+        translate: -100%;
+        transition: translate 0.2s;
+    }
+
+    &:hover {
+        translate: 0 -2px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+        &::after {
+            translate: 0;
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid #0f172a;
+        outline-offset: 2px;
+    }
+}
+
+.form-film {
+    margin: 1.25rem 1rem 0;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 560px;
+    border-top: 4px solid #c85c0f;
+    transition: opacity 300ms ease, translate 300ms ease, display 300ms allow-discrete;
+
+    &.cache {
+        display: none;
+        opacity: 0;
+        translate: 0 -12px;
+    }
+
+    h2 {
+        margin: 0 0 1.25rem;
+        font-size: 1.1rem;
+        color: #0f172a;
+    }
+
+    .form-champ {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        margin-bottom: 1rem;
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
+        input,
+        textarea {
+            padding: 0.6rem 0.85rem;
+            border: 1.5px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 150ms;
+            background-color: #f9fafb;
+
+            &:focus {
+                outline: none;
+                border-color: #c85c0f;
+                background-color: #fff;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+
+        button[type="button"] {
+            padding: 0.75rem 1.5rem;
+            border: 1.5px solid #d1d5db;
+            background: transparent;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 150ms;
+
+            &:hover {
+                background-color: #f3f4f6;
+            }
+        }
+    }
+}
+
+section.vedette {
+    margin: 1.5rem;
+}
+
+.grille {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+
+    &.grille-films {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+.tuile {
+    flex: 1 1 0;
+    background-color: #fff;
+    border-radius: 12px;
+    min-height: 300px;
+    max-height: 300px;
+    transition: translate 0.3s;
+    position: relative;
+    overflow: hidden;
+    
+    figure {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            /* line-height: 60px; */
+            padding: 0 1rem;
+            font-variant: small-caps;
+            font-size: 1rem;
+        }
+    }
+
+    /* Seulement dans la page films.html */
+    .description {
+        position: absolute;
+        top: 0;
+        margin: 0;
+        width: 100%;
+        height: calc(100% - 60px);
+        padding: 1rem;
+        translate: 0 -100%;
+        transition: translate 300ms;
+        background-color: rgba(4, 38, 77, 0.7);
+        color: #fff;
+    }
+
+    &:hover {
+        .description {
+            translate: initial;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #0f172a;
+    color: #fff;
+}
+
+.cache {
+    display: none;
+}
+
+
+/* Requêtes médias */
+@media (min-width: 768px) {
+    .grille {
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+}

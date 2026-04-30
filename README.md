@@ -4,6 +4,12 @@
 
 ## Calendrier des activités
 
+### ÉTAPE #4 : Concevoir et produire un site Web dynamique en programmant une interface utilisateur adaptative et animée, tout en implémentant les fonctionnalités de façon modulaire. 
+
+**Semaine 12**
+- Structure de données `JavaScript` (*tableaux* et *objets*)
+- Animations du UI : API `view-transition`
+
 ### ÉTAPE #3 : Programmer l’interactivité de l’interface utilisateur des pages Web à l’aide du langage de programmation.
 
 **Semaine 11**
