@@ -27,42 +27,90 @@ const sectionListeFilms = document.querySelector("#page-films section.grille");
 if (sectionListeFilms) {
     const gabaritFilm = document.querySelector("#gabarit-film");
 
-    for (const film of listeFilms) {
-        // Cloner le gabarit
-        const articleFilm = gabaritFilm.cloneNode(true).content;
+    function afficherListeFilms() {
+        // Vider la section avant d'ajouter les films
+        sectionListeFilms.innerHTML = "";
+        for (const film of listeFilms) {
+            // Cloner le gabarit
+            const articleFilm = gabaritFilm.cloneNode(true).content;
 
-        // Changer les attributs de l'image et les textes du titre et de la 
-        // description
-        articleFilm.querySelector("figcaption").textContent = film.titre;
-        articleFilm.querySelector("p.description").textContent = film.synopsis;
-        articleFilm.querySelector("img").alt = film.alt;
-        articleFilm.querySelector("img").src = "ressources/images/films/" + film.vignette;
+            // Changer les attributs de l'image et les textes du titre et de la 
+            // description
+            const imageFilm = articleFilm.querySelector("img");
 
-        // Injecter cet article dans la section des films
-        sectionListeFilms.append(articleFilm);
+            articleFilm.querySelector("figcaption").textContent = film.titre;
+            articleFilm.querySelector("p.description").textContent = film.synopsis;
+            imageFilm.alt = film.alt;
+            imageFilm.src = "ressources/images/films/" + film.vignette;
+            // Gérer les erreurs liées aux images de films introuvables
+            imageFilm.addEventListener("error", () => {
+                imageFilm.src = "ressources/images/films/affiche-defaut.png";
+            });
+
+
+            // Injecter cet article dans la section des films
+            sectionListeFilms.append(articleFilm);
+        }
     }
 
-    // Ajout d'un film
-    const btnAjouter = document.querySelector(".btn-ajouter");
-    const frmAjouterFilm = document.querySelector("#frm-ajouter-film");
+    // Appel initial de la fonction d'affichage
+    afficherListeFilms();
 
-    btnAjouter.addEventListener("click", ()=>{
-        console.log("Valeur du champ titre : ", frmAjouterFilm.titre.value);
-        // Ajouter dans le tableau listeFilms un objet JS qui contient
-        // les propriétés attendues
-        const objetFilm = {
-            titre: frmAjouterFilm.titre.value,
-            synopsis: frmAjouterFilm.synopsis.value,
-            vignette: frmAjouterFilm.vignette.value,
-            alt: "Affiche du film " + frmAjouterFilm.titre.value
+    // Afficher le formulaire pour proposer un film
+    const btnProposer = document.querySelector(".btn-proposer");
+    const frmAjouterFilm = document.querySelector("#form-ajouter-film");
+
+    btnProposer.addEventListener("click", () => {
+        frmAjouterFilm.classList.remove("cache");
+        // On met le focus sur le 1er élément du formulaire
+        frmAjouterFilm.querySelector("input, textarea").focus();
+    });
+
+    // Ajout d'un film
+    frmAjouterFilm.addEventListener("submit", (evt) => {
+        // Empêche le formulaire soumis de faire une requête HTTP à l'URL 
+        // spécifiée dans l'attribut action (ou la page elle-même si 
+        // cet attribut n'est pas utilisé)
+        evt.preventDefault();
+
+        // On cherche toutes les valeurs saisies par l'utilisateur
+        const titre = document.querySelector("#film-titre").value.trim();
+        const synopsis = document.querySelector("#film-synopsis").value.trim();
+        let vignette = document.querySelector("#film-vignette").value.trim();
+
+        // Valider que ces valeurs ne sont pas vides
+        if (!titre || !synopsis) {
+            alert("Le titre et le synopsis sont obligatoires");
+            // Une fonction est interrompue dès qu'une instruction return est exécutée
+            return
         }
 
-        console.log("Objet film correspondant aux valeurs dans le formulaire : ", objetFilm);
+        // Naif et insuffisant
+        // if(!vignette) {
+        //     vignette = "affiche-defaut.png";
+        // }
 
-        // Ajouter le film proposé dans le tableau des films
-        listeFilms.push(objetFilm); // Ajouter à la fin
-        console.log("Tableau listeFilms : ", listeFilms);
-        
-        
+        // Créer un objet film ... 
+        const nouveauFilm = {
+            titre: titre,
+            synopsis: synopsis,
+            vignette: vignette,
+            alt: `Affiche du film ${titre}`
+        }
+        // ... et l'ajouter au tableau
+        listeFilms.push(nouveauFilm);
+        console.log("Liste film a un nouveau film : ", listeFilms);
+
+
+        // Afficher les films de nouveau (puisque le tableau des films a changé)
+        afficherListeFilms();
+
+        // Réinitialiser les champs de formulaire
+        frmAjouterFilm.reset();
+        // On cache le formulaire
+        frmAjouterFilm.classList.add("cache");
     });
+
+
+
 }

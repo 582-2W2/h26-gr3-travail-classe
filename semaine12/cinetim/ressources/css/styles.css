@@ -220,6 +220,15 @@ main#page-films {
         translate: 0 -12px;
     }
 
+    @starting-style {
+        /* Les styles de départ à assumer si la classe "cache" n'est 
+        pas appliquée au formulaire */
+        &:not(.cache) {
+            opacity: 0;
+            translate: 0 -20px;
+        }
+    }
+
     h2 {
         margin: 0 0 1.25rem;
         font-size: 1.1rem;
@@ -265,7 +274,7 @@ main#page-films {
         gap: 0.75rem;
         margin-top: 0.5rem;
 
-        button[type="button"] {
+        button[type="reset"] {
             padding: 0.75rem 1.5rem;
             border: 1.5px solid #d1d5db;
             background: transparent;
