@@ -161,6 +161,33 @@ main#page-films {
     h1 {
         padding: 0rem 1rem;
     }
+
+    .tuile .btn-supprimer {
+        aspect-ratio: 1;
+        position: absolute;
+        background-color: #0f0f0f;
+        border-radius: 50%;
+        padding: 0.4rem;
+        z-index: 1000;
+        top: 0.25rem;
+        right: 0.25rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+    }
+
+    .recherche-films {
+        max-width: 800px;
+        margin: 1rem auto;
+
+        input[name="mot-cle"] {
+            width: 100%;
+            border: #c85c0f 1px dashed;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            font-size: 1.3rem;
+            outline: none;
+        }
+    }
 }
 
 .btn-proposer,

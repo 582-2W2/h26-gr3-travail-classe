@@ -24,6 +24,10 @@
   <main id="page-films">
     <h1>Films proposés</h1>
 
+    <div class="recherche-films">
+      <input type="text" name="mot-cle" placeholder="Recherchez par titre et/ou synopsis">
+    </div>
+
     <button id="btn-proposer-film" class="btn-proposer">Proposer un film</button>
 
     <form id="form-ajouter-film" class="form-film cache" novalidate>
@@ -57,6 +61,7 @@
 
   <template id="gabarit-film">
     <article class="tuile">
+      <button type="button" class="btn-supprimer">🗑️</button>
       <figure>
         <img src="ressources/images/films/VIGNETTE" alt="ALT">
         <figcaption>TITRE</figcaption>

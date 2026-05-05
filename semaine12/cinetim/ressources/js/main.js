@@ -34,6 +34,22 @@ if (sectionListeFilms) {
             // Cloner le gabarit
             const articleFilm = gabaritFilm.cloneNode(true).content;
 
+            // On associe le clic du bouton "Supprimer"
+            const btnSupprimer = articleFilm.querySelector(".btn-supprimer");
+            btnSupprimer.addEventListener("click", 
+                evt => {
+                    // Retirer l'article correspondant à ce bouton du DOM
+                    evt.target.closest(".tuile").remove();
+                    // Mais aussi retirer l'objet correspondant à ce film
+                    // du tableau JS des films (listeFilms)
+                    console.log("Position (index) du film à supprimer : ", 
+                        listeFilms.indexOf(film));
+                    
+                    listeFilms.splice(listeFilms.indexOf(film), 1);
+                    // afficherListeFilms();
+                }
+            );
+
             // Changer les attributs de l'image et les textes du titre et de la 
             // description
             const imageFilm = articleFilm.querySelector("img");
@@ -49,7 +65,7 @@ if (sectionListeFilms) {
 
 
             // Injecter cet article dans la section des films
-            sectionListeFilms.append(articleFilm);
+            sectionListeFilms.prepend(articleFilm);
         }
     }
 
