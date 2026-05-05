@@ -38,15 +38,15 @@ if (sectionListeFilms) {
             const btnSupprimer = articleFilm.querySelector(".btn-supprimer");
             btnSupprimer.addEventListener("click", 
                 evt => {
-                    // Retirer l'article correspondant à ce bouton du DOM
+                    // A) Retirer l'article correspondant à ce bouton du DOM
                     evt.target.closest(".tuile").remove();
-                    // Mais aussi retirer l'objet correspondant à ce film
-                    // du tableau JS des films (listeFilms)
-                    console.log("Position (index) du film à supprimer : ", 
-                        listeFilms.indexOf(film));
                     
+                    // B) Retirer l'objet correspondant à ce film du tableau JS des films (listeFilms)
                     listeFilms.splice(listeFilms.indexOf(film), 1);
-                    // afficherListeFilms();
+
+                    // Alternativement, si on fait B), on pourrait réafficher tous les films en appelant 
+                    // la fonction d'affichage de nouveau au lieu de faire l'étape A) (retirer manuellement l'article du DOM)
+                    // afficherListeFilms();                    
                 }
             );
 
