@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2 - Methodes utiles</title>
+</head>
+<body>
+  <h1>Methodes utiles</h1>
+
+  <input id="texte" type="text" value="   Bonjour TIM   " />
+  <button id="tester">Tester</button>
+  <p id="resultat"></p>
+
+  <script>
+    const texte = document.querySelector('#texte');
+    const bouton = document.querySelector('#tester');
+    const resultat = document.querySelector('#resultat');
+
+    bouton.addEventListener('click', () => {
+      const normalise = texte.value.trim().toLowerCase();
+      const contientTim = normalise.includes('tim');
+
+      const tags = ['js', 'dom', 'json'];
+      const phraseTags = tags.join(' | ');
+
+      resultat.textContent = `Texte: ${normalise} | contient "tim": ${contientTim} | tags: ${phraseTags}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4 - localStorage</title>
+</head>
+<body>
+  <h1>Sauvegarder un prenom</h1>
+
+  <input id="prenom" type="text" placeholder="Ton prenom" />
+  <button id="sauver">Sauver</button>
+  <button id="charger">Charger</button>
+  <button id="vider">Vider</button>
+  <p id="etat"></p>
+
+  <script>
+    const cle = 'exemple-prenom';
+    const prenom = document.querySelector('#prenom');
+    const sauver = document.querySelector('#sauver');
+    const charger = document.querySelector('#charger');
+    const vider = document.querySelector('#vider');
+    const etat = document.querySelector('#etat');
+
+    sauver.addEventListener('click', () => {
+      localStorage.setItem(cle, prenom.value.trim());
+      etat.textContent = 'Valeur sauvegardee';
+    });
+
+    charger.addEventListener('click', () => {
+      const valeur = localStorage.getItem(cle) || '';
+      prenom.value = valeur;
+      etat.textContent = `Valeur lue: ${valeur}`;
+    });
+
+    vider.addEventListener('click', () => {
+      localStorage.removeItem(cle);
+      prenom.value = '';
+      etat.textContent = 'Stockage vide';
+    });
+  </script>
+</body>
+</html>

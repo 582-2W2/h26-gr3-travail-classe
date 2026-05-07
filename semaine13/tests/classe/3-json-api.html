@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 - JSON API</title>
+</head>
+<body>
+  <h1>JSON.parse et JSON.stringify</h1>
+
+  <textarea id="json" rows="4" cols="40">{"nom":"Lea","note":92}</textarea>
+  <br />
+  <button id="lire">Lire JSON</button>
+  <button id="ecrire">Ecrire JSON</button>
+  <pre id="sortie"></pre>
+
+  <script>
+    const champJson = document.querySelector('#json');
+    const boutonLire = document.querySelector('#lire');
+    const boutonEcrire = document.querySelector('#ecrire');
+    const sortie = document.querySelector('#sortie');
+
+    boutonLire.addEventListener('click', () => {
+      
+    });
+
+    boutonEcrire.addEventListener('click', () => {
+      const etudiant = { nom: 'Mia', note: 88 };
+      
+    });
+  </script>
+</body>
+</html>

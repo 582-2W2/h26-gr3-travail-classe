@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1 - Filter</title>
+</head>
+<body>
+  <h1>Filtrer une liste</h1>
+
+  <input id="mot-cle" type="text" placeholder="Tape un mot" />
+  <ul id="liste"></ul>
+
+  <script>
+    const films = ['Dune', 'Arrival', 'Interstellar', 'Alien'];
+    const input = document.querySelector('#mot-cle');
+    const liste = document.querySelector('#liste');
+
+    function afficher(elements) {
+      liste.innerHTML = '';
+      for (const element of elements) {
+        const li = document.createElement('li');
+        li.textContent = element;
+        liste.append(li);
+      }
+    }
+
+    function filtrer() {
+      const motCle = input.value.trim().toLowerCase();
+      const resultat = films.filter((film) => film.toLowerCase().includes(motCle));
+      afficher(resultat);
+    }
+
+    input.addEventListener('input', filtrer);
+    afficher(films);
+  </script>
+</body>
+</html>

@@ -6,6 +6,13 @@
 
 ### ÉTAPE #4 : Concevoir et produire un site Web dynamique en programmant une interface utilisateur adaptative et animée, tout en implémentant les fonctionnalités de façon modulaire. 
 
+**Semaine 13**
+- Animations du UI : API `view-transition`
+- Filtrer un tableau JavaScript avec `filter`
+- Méthodes diverses des tableaux et des chaînes de caractères (`join`, `includes`, `trim`, `toLowerCase`)
+- Format JSON, API `JSON` de JavaScript, (optionnel : charger un fichier JSON dans le DOM)
+- API `LocalStorage`
+
 **Semaine 12**
 - Structure de données `JavaScript` (*tableaux* et *objets*)
 - Animations du UI : API `view-transition`

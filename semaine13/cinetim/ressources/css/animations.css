@@ -1,0 +1,27 @@
+/* Animations du décompte cinéma en page d'accueil */
+@keyframes tourner-disque {
+    from {
+        rotate: 0turn;
+    }
+
+    to {
+        rotate: 1turn;
+    }
+}
+
+/* Inutilisée (horrible) */
+@keyframes battement {
+    from,
+    to {
+        scale: 1
+    }
+
+    25%,
+    75% {
+        scale: 1.15
+    }
+
+    50% {
+        scale: 0.85
+    }
+}
