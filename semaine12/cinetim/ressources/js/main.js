@@ -118,7 +118,6 @@ if (sectionListeFilms) {
         listeFilms.push(nouveauFilm);
         console.log("Liste film a un nouveau film : ", listeFilms);
 
-
         // Afficher les films de nouveau (puisque le tableau des films a changé)
         afficherListeFilms();
 
@@ -127,7 +126,4 @@ if (sectionListeFilms) {
         // On cache le formulaire
         frmAjouterFilm.classList.add("cache");
     });
-
-
-
 }

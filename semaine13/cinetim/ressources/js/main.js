@@ -27,10 +27,11 @@ const sectionListeFilms = document.querySelector("#page-films section.grille");
 if (sectionListeFilms) {
     const gabaritFilm = document.querySelector("#gabarit-film");
 
-    function afficherListeFilms() {
+/***************** AFFICHAGE DES FILMS ********************************/    
+    function afficherListeFilms(tableauFilms = listeFilms) {
         // Vider la section avant d'ajouter les films
         sectionListeFilms.innerHTML = "";
-        for (const film of listeFilms) {
+        for (const film of tableauFilms) {
             // Cloner le gabarit
             const articleFilm = gabaritFilm.cloneNode(true).content;
 
@@ -39,14 +40,14 @@ if (sectionListeFilms) {
             btnSupprimer.addEventListener("click", 
                 evt => {
                     // A) Retirer l'article correspondant à ce bouton du DOM
-                    evt.target.closest(".tuile").remove();
+                    // evt.target.closest(".tuile").remove();
                     
                     // B) Retirer l'objet correspondant à ce film du tableau JS des films (listeFilms)
-                    listeFilms.splice(listeFilms.indexOf(film), 1);
+                    tableauFilms.splice(tableauFilms.indexOf(film), 1);
 
                     // Alternativement on pourrait réafficher tous les films en appelant la fonction d'affichage de nouveau
                     // au lieu de retirer manuellement l'article du DOM.
-                    // afficherListeFilms();
+                    afficherListeFilms(tableauFilms);
                     
                 }
             );
@@ -73,6 +74,7 @@ if (sectionListeFilms) {
     // Appel initial de la fonction d'affichage
     afficherListeFilms();
 
+/*********************** AJOUT NOUVEAU FILM ***************************/
     // Afficher le formulaire pour proposer un film
     const btnProposer = document.querySelector(".btn-proposer");
     const frmAjouterFilm = document.querySelector("#form-ajouter-film");
@@ -128,6 +130,36 @@ if (sectionListeFilms) {
         frmAjouterFilm.classList.add("cache");
     });
 
+/******************* RECHERCHE (FILTRE) DANS LES FILMS ****************/
+    const eltRecherche = document
+                .querySelector(".recherche-films input[name='mot-cle']");
+    eltRecherche.addEventListener("input", ()=>{
+        const motCle = eltRecherche.value.toLowerCase().trim();
+        if(motCle=="") {
+            afficherListeFilms();
+            return;
+        }
+        console.log("Dans la fonction qui gère le filtre : ", motCle);
+        
+        // Méthode A : impérative (à éviter)
+        // Filtrer le tableau des films (listeFilms) en cherchant dans
+        // les valeurs de titre et synopsis le motCle saisit par l'utilisatrice
+        // let listeFilmsFiltres = []
+        // for(const film of listeFilms) {
+        //     if(film.titre.toLowerCase().includes(motCle) 
+        //         || film.synopsis.toLowerCase().includes(motCle)) {
+        //         listeFilmsFiltres.push(film);
+        //     }
+        // }
 
+        // Méthode B : déclarative (ou expressive) <---- PRÉFÉRABLE
+        const listeFilmsFiltres = listeFilms.filter(
+            film=>film.titre.toLowerCase().includes(motCle) 
+                    || film.synopsis.toLowerCase().includes(motCle)
+        );
+        
+        // Afficher de nouveau les films avec le tableau filtré
+        afficherListeFilms(listeFilmsFiltres);
+    });
 
 }
